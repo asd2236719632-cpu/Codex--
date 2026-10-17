@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萌爪星空 · Paws & Glow | 现代高端宠物洗护美学生活馆</title>
+  <meta name="description" content="专注猫犬低应激定制洗护、全透明可视化洗护间、进口天然植物精油香波，国家认证A级美容师主理，让洗护成为毛孩子的治愈SPA之旅。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans SC"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#FFFBEB',
+              100: '#FEF3C7',
+              200: '#FDE68A',
+              300: '#FCD34D',
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#D97706',
+              700: '#B45309',
+              800: '#92400E',
+              900: '#78350F',
+            },
+            sage: {
+              50: '#F0FDF4',
+              100: '#DCFCE7',
+              500: '#10B981',
+              600: '#059669',
+            },
+            warm: {
+              bg: '#FAF7F2',
+              card: '#FFFFFF',
+              dark: '#1E1B18',
+              muted: '#78716C',
+            }
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -5px rgba(217, 119, 6, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03)',
+            'hover': '0 20px 35px -5px rgba(217, 119, 6, 0.16), 0 10px 15px -3px rgba(0, 0, 0, 0.05)',
+            'glow': '0 0 25px rgba(245, 158, 11, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #292524;
+      overflow-x: hidden;
+    }
+    
+    .glass-nav {
+      background: rgba(250, 247, 242, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5EFEB;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FBBF24;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F59E0B;
+    }
+
+    .ba-slider-container {
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      overflow: hidden;
+    }
+    .ba-overlay-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      cursor: ew-resize;
+      transform: translateX(-50%);
+    }
+
+    @keyframes pulse-subtle {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 3s ease-in-out infinite;
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- 顶部滚动微公告栏 -->
+  <div class="bg-gradient-to-r from-brand-600 via-amber-500 to-amber-600 text-white text-xs sm:text-sm font-medium py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-2 overflow-hidden text-ellipsis whitespace-nowrap">
+        <span class="bg-white/20 text-white px-2 py-0.5 rounded-full text-xs font-semibold shrink-0 animate-pulse">今日营业</span>
+        <span class="truncate">✨ 新客线上初次预约立享全套「碳酸泉微气泡SPA」体验升级！专车恒温接送服务已覆盖全城</span>
+      </div>
+      <div class="hidden md:flex items-center space-x-6 shrink-0 text-amber-50 text-xs">
+        <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5"></i> 09:30 - 21:00</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5"></i> 上海市宜川路街道贾运620号</span>
+        <a href="tel:4008889988" class="hover:text-white font-bold transition-colors flex items-center gap-1">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> 400-888-9988
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <header id="navbar" class="sticky top-0 z-40 transition-all duration-300 border-b border-amber-900/5 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- 品牌标识 -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white shadow-soft group-hover:scale-105 transition-transform duration-300">
+            <i data-lucide="paw-print" class="w-6 h-6 fill-white/20"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xl font-extrabold tracking-tight text-stone-900 group-hover:text-brand-600 transition-colors">萌爪星空</span>
+              <span class="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 bg-amber-100 text-brand-700 rounded-md">SPA & Grooming</span>
+            </div>
+            <p class="text-xs text-stone-500 font-medium tracking-wider">PAWS & GLOW 宠物生活馆</p>
+          </div>
+        </a>
+
+        <!-- 桌面端菜单导航 -->
+        <nav class="hidden lg:flex items-center space-x-5 xl:space-x-7 text-stone-700 font-medium text-xs xl:text-sm">
+          <a href="#services" class="hover:text-brand-600 transition-colors py-2">洗护套餐</a>
+          <a href="#calculator" class="hover:text-brand-600 transition-colors py-2 flex items-center gap-1.5">
+            <span>智能估价</span>
+            <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700">测测费用</span>
+          </a>
+          <a href="#before-after" class="hover:text-brand-600 transition-colors py-2">洗护蜕变</a>
+          <a href="#environment" class="hover:text-brand-600 transition-colors py-2">透明环境</a>
+          <a href="#team" class="hover:text-brand-600 transition-colors py-2">金牌团队</a>
+          <a href="#testimonials" class="hover:text-brand-600 transition-colors py-2">家长口碑</a>
+          <a href="#faq" class="hover:text-brand-600 transition-colors py-2">常见解答</a>
+          <a href="#location" class="hover:text-brand-600 transition-colors py-2 flex items-center gap-1 font-bold text-brand-600">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500"></i>
+            <span>门店地图</span>
+          </a>
+        </nav>
+
+        <!-- 右侧行动号召 -->
+        <div class="hidden sm:flex items-center gap-4">
+          <button onclick="openContactModal()" class="text-stone-700 hover:text-brand-600 font-medium text-sm flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-amber-50/80 transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4 text-brand-500"></i>
+            <span>微信客服</span>
+          </button>
+          <button onclick="openBookingModal()" class="relative group overflow-hidden rounded-full p-[1px] focus:outline-none">
+            <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full group-hover:opacity-90 transition-opacity"></span>
+            <span class="relative block px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-sm shadow-soft group-hover:shadow-hover transition-all flex items-center gap-2">
+              <i data-lucide="calendar-heart" class="w-4 h-4"></i>
+              <span>在线预约</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- 移动端汉堡按钮 -->
+        <div class="flex items-center gap-2 sm:hidden">
+          <button onclick="openBookingModal()" class="bg-brand-500 text-white text-xs font-semibold px-3 py-2 rounded-full flex items-center gap-1">
+            <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+            <span>预约</span>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-xl text-stone-700 hover:bg-stone-100 transition-colors" aria-label="打开菜单">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 移动端折叠菜单 -->
+    <div id="mobile-menu" class="hidden sm:hidden border-t border-stone-200/80 bg-white/95 px-6 py-6 space-y-4 shadow-lg backdrop-blur-md">
+      <a href="#services" class="block text-stone-800 font-medium text-base hover:text-brand-600">洗护套餐矩阵</a>
+      <a href="#calculator" class="block text-stone-800 font-medium text-base hover:text-brand-600">智能价格计算器</a>
+      <a href="#before-after" class="block text-stone-800 font-medium text-base hover:text-brand-600">洗护前后蜕变</a>
+      <a href="#environment" class="block text-stone-800 font-medium text-base hover:text-brand-600">无菌透明空间</a>
+      <a href="#team" class="block text-stone-800 font-medium text-base hover:text-brand-600">资深美容师团队</a>
+      <a href="#testimonials" class="block text-stone-800 font-medium text-base hover:text-brand-600">家长真实评价</a>
+      <a href="#faq" class="block text-stone-800 font-medium text-base hover:text-brand-600">常见问题 FAQ</a>
+      <a href="#location" class="block text-brand-600 font-bold text-base hover:text-brand-700 flex items-center gap-2">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>门店地图与交通路线</span>
+      </a>
+      <div class="pt-4 border-t border-stone-100 flex flex-col gap-3">
+        <button onclick="openContactModal()" class="w-full py-2.5 rounded-xl border border-amber-200 text-stone-800 font-medium flex items-center justify-center gap-2 text-sm">
+          <i data-lucide="message-circle" class="w-4 h-4 text-brand-500"></i>
+          <span>微信客服沟通</span>
+        </button>
+        <button onclick="openBookingModal()" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold flex items-center justify-center gap-2 shadow-soft">
+          <i data-lucide="calendar-heart" class="w-4 h-4"></i>
+          <span>立即在线预订洗护档期</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero 英雄主视觉区 -->
+  <section class="relative pt-8 pb-16 lg:pt-16 lg:pb-28 overflow-hidden">
+    <!-- 背景光晕装饰 -->
+    <div class="absolute top-1/4 -left-48 w-96 h-96 bg-amber-200/40 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-48 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- 左侧文案与主CTA -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/50 text-amber-900 text-xs sm:text-sm font-semibold shadow-sm">
+            <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>国家CKU/NGKC认证 · 低应激轻柔洗护领航者</span>
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-900 tracking-tight leading-[1.15]">
+            每一只毛孩子<br>
+            都值得一场<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 underline decoration-amber-300 decoration-wavy decoration-2">星级治愈SPA</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            告别传统洗护的紧张与应激。我们采用<span class="text-stone-900 font-semibold">全透明恒温软水仓</span>、进口植物低敏萃取香波，由<span class="text-stone-900 font-semibold">十年资深持证美容师1对1轻柔伴抚</span>，让洗护成为每一次欢欣雀跃的期待。
+          </p>
+
+          <!-- 亮点小徽章 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 max-w-xl mx-auto lg:mx-0">
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/70 border border-amber-100 shadow-sm">
+              <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0"><i data-lucide="shield-check" class="w-4 h-4"></i></div>
+              <span class="text-xs font-semibold text-stone-800">一宠一消毒</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/70 border border-amber-100 shadow-sm">
+              <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0"><i data-lucide="leaf" class="w-4 h-4"></i></div>
+              <span class="text-xs font-semibold text-stone-800">低敏天然香波</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/70 border border-amber-100 shadow-sm">
+              <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center shrink-0"><i data-lucide="video" class="w-4 h-4"></i></div>
+              <span class="text-xs font-semibold text-stone-800">洗护全程可视</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-white/70 border border-amber-100 shadow-sm">
+              <div class="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center shrink-0"><i data-lucide="heart-handshake" class="w-4 h-4"></i></div>
+              <span class="text-xs font-semibold text-stone-800">猫咪零应激房</span>
+            </div>
+          </div>
+
+          <!-- CTA 按钮组合 -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold text-base shadow-hover hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3">
+              <i data-lucide="calendar-check" class="w-5 h-5"></i>
+              <span>立即预约黄金档期</span>
+              <span class="text-xs px-2 py-0.5 rounded-full bg-white/20">立减¥20</span>
+            </button>
+            <a href="#calculator" class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white border border-stone-200/90 text-stone-800 font-semibold text-base shadow-sm hover:border-amber-400 hover:bg-amber-50/50 hover:text-amber-700 transition-all flex items-center justify-center gap-2">
+              <i data-lucide="calculator" class="w-5 h-5 text-amber-500"></i>
+              <span>测测洗护多少钱</span>
+            </a>
+          </div>
+
+          <!-- 真实数据信任指标 -->
+          <div class="pt-6 border-t border-amber-900/10 flex items-center justify-around sm:justify-start sm:gap-10 text-stone-800">
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-brand-600">18,500<span class="text-lg">+</span></div>
+              <div class="text-xs text-stone-500 font-medium mt-0.5">累计安全洗护</div>
+            </div>
+            <div class="h-8 w-px bg-stone-200"></div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-brand-600">99.8<span class="text-lg">%</span></div>
+              <div class="text-xs text-stone-500 font-medium mt-0.5">家长五星好评</div>
+            </div>
+            <div class="h-8 w-px bg-stone-200"></div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-emerald-600">100<span class="text-lg">%</span></div>
+              <div class="text-xs text-stone-500 font-medium mt-0.5">纯温和无麻醉</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 右侧视觉多图组合展示 -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- 主图卡片（可爱宠物泡泡浴实拍） -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-stone-100 aspect-[4/3] sm:aspect-[4/3]">
+              <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1000&q=80" 
+                   alt="宠物正在享受温暖的泡泡浴洗护" 
+                   class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white flex items-center justify-between">
+                <div>
+                  <span class="text-xs bg-amber-500/90 backdrop-blur-sm px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">LIVE 实拍</span>
+                  <p class="font-bold text-sm sm:text-base mt-1">比熊「球球」的碳酸泉水疗时刻</p>
+                </div>
+                <div class="flex items-center gap-1 text-amber-300 text-xs font-semibold bg-black/40 backdrop-blur-md px-2.5 py-1.5 rounded-xl">
+                  <i data-lucide="heart" class="w-3.5 h-3.5 fill-rose-500 text-rose-500"></i> 享受中
+                </div>
+              </div>
+            </div>
+
+            <!-- 浮动小卡片1：今日特惠通知 -->
+            <div class="absolute -top-6 -left-6 sm:-left-8 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl shadow-soft border border-amber-100 flex items-center gap-3 animate-pulse-subtle">
+              <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                <i data-lucide="sparkle" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-stone-900">今日特惠已就绪</p>
+                <p class="text-[11px] text-stone-500">赠送毛发修形与爪爪养护</p>
+              </div>
+            </div>
+
+            <!-- 浮动小卡片2：猫咪专区认证 -->
+            <div class="absolute -bottom-6 -right-4 sm:-right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-soft border border-amber-100 max-w-[220px]">
+              <div class="flex items-center gap-2 text-stone-900 mb-1">
+                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></div>
+                <span class="text-xs font-bold">独立猫咪静音洗护室</span>
+              </div>
+              <p class="text-[11px] text-stone-500 leading-tight">
+                气味隔离 · 柔和弱光 · 恒温低风噪 · 零犬吠惊扰
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4大核心安心标准 (Why Choose Us) -->
+  <section class="py-16 bg-white border-y border-amber-100/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-full border border-amber-200/50">SAFETY & LOVE FIRST</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-3 tracking-tight">为什么挑剔的铲屎官都认准萌爪星空？</h2>
+        <p class="text-stone-500 text-sm sm:text-base mt-3">
+          我们像对待自己的孩子一样尊重每一只生命，把安全、卫生、舒适做到极致细节。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- 承诺 1 -->
+        <div class="bg-stone-50/80 rounded-2xl p-7 border border-stone-200/60 hover:bg-white hover:border-amber-300 hover:shadow-soft transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all">
+            <i data-lucide="spray-can" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">一客一消 · 严防交叉</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            台面每客紫外+臭氧双重消杀，剪刀排梳单独密封消毒包拆封，一次性加厚亲肤毛巾绝不混用。
+          </p>
+          <div class="mt-4 text-xs font-semibold text-amber-600 flex items-center gap-1">
+            <span>医疗级卫生规范</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 承诺 2 -->
+        <div class="bg-stone-50/80 rounded-2xl p-7 border border-stone-200/60 hover:bg-white hover:border-amber-300 hover:shadow-soft transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all">
+            <i data-lucide="droplet" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">0刺激弱酸纯天然香波</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            拒绝廉价工业香精！全线采用澳新原装进口有机洋甘菊、燕麦多肽洗护液，pH6.5专宠设计不伤皮脂膜。
+          </p>
+          <div class="mt-4 text-xs font-semibold text-emerald-600 flex items-center gap-1">
+            <span>食品级安全标准</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 承诺 3 -->
+        <div class="bg-stone-50/80 rounded-2xl p-7 border border-stone-200/60 hover:bg-white hover:border-amber-300 hover:shadow-soft transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
+            <i data-lucide="eye" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">全透明大落地窗监护</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            拒绝暗室关门作业。家长可在休息吧台透过无死角钢化玻璃边品咖啡边观看，亦支持手机微信实时查阅。
+          </p>
+          <div class="mt-4 text-xs font-semibold text-sky-600 flex items-center gap-1">
+            <span>过程公开安心透明</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+        <!-- 承诺 4 -->
+        <div class="bg-stone-50/80 rounded-2xl p-7 border border-stone-200/60 hover:bg-white hover:border-amber-300 hover:shadow-soft transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white transition-all">
+            <i data-lucide="award" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-lg font-bold text-stone-900 mb-2">持证低应激护理师</h3>
+          <p class="text-stone-600 text-sm leading-relaxed">
+            主理美容师均持有国际犬协CKU A/B级认证或猫咪低应激护理师资格，洗护中用零食安抚、绝不打骂拉扯。
+          </p>
+          <div class="mt-4 text-xs font-semibold text-rose-600 flex items-center gap-1">
+            <span>情绪价值满满陪伴</span> <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 洗护服务矩阵套餐 Catalog -->
+  <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-amber-100/60 px-3 py-1 rounded-full">SERVICE MENU</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">专业宠物洗护服务矩阵</h2>
+        <p class="text-stone-500 text-sm sm:text-base mt-2">标准流程多达12道工序，专宠专洗，呵护从头到爪尖的每一寸毛发。</p>
+      </div>
+
+      <!-- 分类标签过滤器 -->
+      <div class="mt-6 md:mt-0 flex flex-wrap gap-2" id="service-tabs">
+        <button onclick="filterServices('all', this)" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-white shadow-sm transition-all">全部服务</button>
+        <button onclick="filterServices('dog', this)" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-amber-50 border border-stone-200 transition-all">狗狗洗护</button>
+        <button onclick="filterServices('cat', this)" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-amber-50 border border-stone-200 transition-all">猫咪专属</button>
+        <button onclick="filterServices('spa', this)" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-amber-50 border border-stone-200 transition-all">奢宠水疗SPA</button>
+        <button onclick="filterServices('styling', this)" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white text-stone-700 hover:bg-amber-50 border border-stone-200 transition-all">日韩造型剪形</button>
+      </div>
+    </div>
+
+    <!-- 服务卡片列表 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+      
+      <!-- 服务1：狗狗清爽基础洗护 -->
+      <div class="service-card dog bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="relative h-52 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=80" 
+                 alt="狗狗洗护基础护理" 
+                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">经典推荐</span>
+            <span class="absolute bottom-3 right-4 bg-black/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 约 60-90 分钟
+            </span>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-stone-900">犬类活力清爽深层洗护</h3>
+              <div class="text-right">
+                <span class="text-xs text-stone-400">起步价</span>
+                <div class="text-2xl font-black text-brand-600">¥88<span class="text-xs font-normal text-stone-500">/次起</span></div>
+              </div>
+            </div>
+            <p class="text-stone-500 text-xs mb-4 leading-relaxed">针对日常清洁与毛发去油，适合所有健康犬种，洗完毛质蓬松透气，自带淡淡森林木质香。</p>
+            
+            <div class="space-y-2 border-t border-stone-100 pt-4 text-xs text-stone-700">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 拔耳毛、耳道温和洗护清洗</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 修剪指甲、磨圆防抓伤、清脚底毛</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 肛门腺排空、腹底及卫生区杂毛清理</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 两遍深层去油清洁 + 一遍顺滑护毛素</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 低音变频吹水拉毛、手工梳开浮毛</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0">
+          <button onclick="quickSelectService('犬类活力清爽深层洗护', 88)" class="w-full py-3 rounded-xl bg-amber-50 hover:bg-brand-500 text-brand-700 hover:text-white font-bold text-sm transition-all border border-amber-200/70 hover:border-transparent flex items-center justify-center gap-2">
+            <span>预约此服务</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 服务2：猫咪静音轻柔减应激洗护 -->
+      <div class="service-card cat bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="relative h-52 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=80" 
+                 alt="猫咪低应激洗护" 
+                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">零应激专区</span>
+            <span class="absolute bottom-3 right-4 bg-black/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 约 70-100 分钟
+            </span>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-stone-900">猫咪零应激抚慰洗护</h3>
+              <div class="text-right">
+                <span class="text-xs text-stone-400">起步价</span>
+                <div class="text-2xl font-black text-brand-600">¥138<span class="text-xs font-normal text-stone-500">/次起</span></div>
+              </div>
+            </div>
+            <p class="text-stone-500 text-xs mb-4 leading-relaxed">由专职猫咪行为学护理师操作，独处低照度猫室，猫咪费洛蒙安抚，不捆绑不强迫。</p>
+            
+            <div class="space-y-2 border-t border-stone-100 pt-4 text-xs text-stone-700">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 进店猫薄荷/费洛蒙香薰环境适应</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 专用圆头防刮甲剪微剪甲尖</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 针对下巴黑头、尾巴油脂粒专属乳化</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 38.5℃恒温软水盆洗，舒缓流水不喷头惊吓</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 进口智能新风静音烘干舱 + 人工手抚配合</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0">
+          <button onclick="quickSelectService('猫咪零应激抚慰洗护', 138)" class="w-full py-3 rounded-xl bg-amber-50 hover:bg-brand-500 text-brand-700 hover:text-white font-bold text-sm transition-all border border-amber-200/70 hover:border-transparent flex items-center justify-center gap-2">
+            <span>预约此服务</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 服务3：纳米微气泡碳酸泉奢宠SPA -->
+      <div class="service-card spa bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="relative h-52 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80" 
+                 alt="纳米微气泡SPA水疗" 
+                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-gradient-to-r from-amber-500 to-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">毛发滋养顶流</span>
+            <span class="absolute bottom-3 right-4 bg-black/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 约 90-120 分钟
+            </span>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-stone-900">碳酸泉纳米微气泡SPA</h3>
+              <div class="text-right">
+                <span class="text-xs text-stone-400">起步价</span>
+                <div class="text-2xl font-black text-brand-600">¥168<span class="text-xs font-normal text-stone-500">/次起</span></div>
+              </div>
+            </div>
+            <p class="text-stone-500 text-xs mb-4 leading-relaxed">日本进口微米级气泡深度透析毛孔污垢，搭配天然海泥或生姜中草药包，舒缓皮炎、修复干枯。</p>
+            
+            <div class="space-y-2 border-t border-stone-100 pt-4 text-xs text-stone-700">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 包含全部基础12项深度洗护流程</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 高浓度碳酸泉生成仪微压泡浴15分钟</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 深海死海黑泥敷抹裹毛、角质软化</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 爪肉垫法国天然乳木果蜂蜡深度滋养</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 牙齿酵素喷雾护理，口气清新一整周</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0">
+          <button onclick="quickSelectService('碳酸泉纳米微气泡SPA', 168)" class="w-full py-3 rounded-xl bg-amber-50 hover:bg-brand-500 text-brand-700 hover:text-white font-bold text-sm transition-all border border-amber-200/70 hover:border-transparent flex items-center justify-center gap-2">
+            <span>预约此服务</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 服务4：日韩系精剪萌系造型 -->
+      <div class="service-card styling bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="relative h-52 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?auto=format&fit=crop&w=800&q=80" 
+                 alt="宠物精剪美发造型" 
+                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-purple-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">CKU大师主理</span>
+            <span class="absolute bottom-3 right-4 bg-black/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 约 120-180 分钟
+            </span>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-stone-900">日韩萌系纯手工剪形雕琢</h3>
+              <div class="text-right">
+                <span class="text-xs text-stone-400">起步价</span>
+                <div class="text-2xl font-black text-brand-600">¥198<span class="text-xs font-normal text-stone-500">/次起</span></div>
+              </div>
+            </div>
+            <p class="text-stone-500 text-xs mb-4 leading-relaxed">比熊甜美圆头、泰迪小熊妆、贵宾羊羔绒、雪纳瑞传统英伦风，根据爱宠骨骼定制专属萌感。</p>
+            
+            <div class="space-y-2 border-t border-stone-100 pt-4 text-xs text-stone-700">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 包含全套深层蓬松洗护及精准拉毛工序</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 美容总监面诊：依据眼距与骨骼设计头型</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 全身手工剪裁线条，不留推子生硬棱角</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 赠送摄影布景棚出图：9张精修大片即时发送</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0">
+          <button onclick="quickSelectService('日韩萌系纯手工剪形雕琢', 198)" class="w-full py-3 rounded-xl bg-amber-50 hover:bg-brand-500 text-brand-700 hover:text-white font-bold text-sm transition-all border border-amber-200/70 hover:border-transparent flex items-center justify-center gap-2">
+            <span>预约此服务</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 服务5：大型犬活力畅爽洗护 -->
+      <div class="service-card dog bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="relative h-52 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80" 
+                 alt="金毛阿拉斯加大狗洗护" 
+                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-amber-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">大狗专区</span>
+            <span class="absolute bottom-3 right-4 bg-black/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 约 90-140 分钟
+            </span>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-stone-900">巨型/大型犬畅爽脱脂洗护</h3>
+              <div class="text-right">
+                <span class="text-xs text-stone-400">起步价</span>
+                <div class="text-2xl font-black text-brand-600">¥188<span class="text-xs font-normal text-stone-500">/次起</span></div>
+              </div>
+            </div>
+            <p class="text-stone-500 text-xs mb-4 leading-relaxed">金毛、萨摩耶、阿拉斯加、边牧、拉布拉多专属超大低阻水力冲淋池，强力脱死浮毛。</p>
+            
+            <div class="space-y-2 border-t border-stone-100 pt-4 text-xs text-stone-700">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 2名经验美容师双人合力配合洗吹</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 大功率双电机吹水，彻底吹透根部防湿疹</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 强力开毛结排浮毛，一趟解决掉毛换季痛点</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 关节保护型防滑软垫浴缸</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0">
+          <button onclick="quickSelectService('巨型/大型犬畅爽脱脂洗护', 188)" class="w-full py-3 rounded-xl bg-amber-50 hover:bg-brand-500 text-brand-700 hover:text-white font-bold text-sm transition-all border border-amber-200/70 hover:border-transparent flex items-center justify-center gap-2">
+            <span>预约此服务</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 服务6：布偶猫去油爆毛高光护理 -->
+      <div class="service-card cat spa styling bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="relative h-52 overflow-hidden bg-stone-100">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=800&q=80" 
+                 alt="布偶长毛猫爆毛洗护" 
+                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-4 left-4 bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">长毛猫明星款</span>
+            <span class="absolute bottom-3 right-4 bg-black/60 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 约 90-120 分钟
+            </span>
+          </div>
+
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-stone-900">长毛猫丝滑去油爆毛SPA</h3>
+              <div class="text-right">
+                <span class="text-xs text-stone-400">起步价</span>
+                <div class="text-2xl font-black text-brand-600">¥218<span class="text-xs font-normal text-stone-500">/次起</span></div>
+              </div>
+            </div>
+            <p class="text-stone-500 text-xs mb-4 leading-relaxed">专克布偶、缅因、金渐层大油尾巴与打结！深层植物乳化去油，洗后丝滑如丝绸缎带。</p>
+            
+            <div class="space-y-2 border-t border-stone-100 pt-4 text-xs text-stone-700">
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 进口天然精油局部温敷乳化重油区</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 丝蛋白深层修复精华素，防止静电炸毛</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 细密排梳手工逐层开结梳理</div>
+              <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 shrink-0"></i> 围脖修圆、脚掌底毛修平</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 pt-0">
+          <button onclick="quickSelectService('长毛猫丝滑去油爆毛SPA', 218)" class="w-full py-3 rounded-xl bg-amber-50 hover:bg-brand-500 text-brand-700 hover:text-white font-bold text-sm transition-all border border-amber-200/70 hover:border-transparent flex items-center justify-center gap-2">
+            <span>预约此服务</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 交互式智能价格与时长估算器 Calculator Section -->
+  <section id="calculator" class="py-20 bg-gradient-to-b from-amber-50/60 via-orange-50/30 to-amber-50/60 border-y border-amber-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-white px-3 py-1 rounded-full border border-amber-200 shadow-sm">SMART ESTIMATOR</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-3 tracking-tight">智能洗护费用与时长预估器</h2>
+        <p class="text-stone-500 text-sm sm:text-base mt-2">
+          价格透明无隐形消费。勾选毛孩子具体身体体型与需求，系统即时计算透明总价与建议用时。
+        </p>
+      </div>
+
+      <div class="bg-white rounded-3xl shadow-xl border border-amber-100 p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- 左侧选择项表单 -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <!-- 第一步：选择宠物类型与体型 -->
+          <div>
+            <label class="text-sm font-bold text-stone-900 flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">1</span>
+              <span>毛孩子品种与体型</span>
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="pet-type-selector">
+              
+              <button type="button" onclick="selectPetType('cat', 98, this)" class="pet-type-btn p-3 rounded-2xl border-2 border-stone-200 hover:border-brand-400 text-left transition-all bg-stone-50/50">
+                <div class="flex justify-between items-center mb-1">
+                  <i data-lucide="cat" class="w-5 h-5 text-amber-600"></i>
+                  <span class="text-[10px] font-bold text-stone-400">全品种</span>
+                </div>
+                <div class="font-bold text-sm text-stone-900">猫咪宝贝</div>
+                <div class="text-[11px] text-stone-500">英短/布偶/美短等</div>
+              </button>
+
+              <button type="button" onclick="selectPetType('small_dog', 88, this)" class="pet-type-btn active p-3 rounded-2xl border-2 border-brand-500 bg-amber-50 text-left transition-all shadow-sm">
+                <div class="flex justify-between items-center mb-1">
+                  <i data-lucide="dog" class="w-5 h-5 text-amber-600"></i>
+                  <span class="text-[10px] font-bold text-brand-600">&lt;8kg</span>
+                </div>
+                <div class="font-bold text-sm text-stone-900">小型犬</div>
+                <div class="text-[11px] text-stone-500">泰迪/比熊/雪纳瑞</div>
+              </button>
+
+              <button type="button" onclick="selectPetType('medium_dog', 138, this)" class="pet-type-btn p-3 rounded-2xl border-2 border-stone-200 hover:border-brand-400 text-left transition-all bg-stone-50/50">
+                <div class="flex justify-between items-center mb-1">
+                  <i data-lucide="dog" class="w-5 h-5 text-amber-600"></i>
+                  <span class="text-[10px] font-bold text-stone-400">8-18kg</span>
+                </div>
+                <div class="font-bold text-sm text-stone-900">中型犬</div>
+                <div class="text-[11px] text-stone-500">柯基/柴犬/法斗</div>
+              </button>
+
+              <button type="button" onclick="selectPetType('large_dog', 198, this)" class="pet-type-btn p-3 rounded-2xl border-2 border-stone-200 hover:border-brand-400 text-left transition-all bg-stone-50/50">
+                <div class="flex justify-between items-center mb-1">
+                  <i data-lucide="dog" class="w-5 h-5 text-amber-600"></i>
+                  <span class="text-[10px] font-bold text-stone-400">18kg+</span>
+                </div>
+                <div class="font-bold text-sm text-stone-900">大型犬</div>
+                <div class="text-[11px] text-stone-500">金毛/边牧/萨摩耶</div>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 第二步：毛发状态与难度 -->
+          <div>
+            <label class="text-sm font-bold text-stone-900 flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">2</span>
+              <span>当前毛发状态</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="fur-condition-selector">
+              
+              <label class="fur-btn flex items-center gap-3 p-3.5 rounded-2xl border-2 border-brand-500 bg-amber-50 cursor-pointer transition-all">
+                <input type="radio" name="fur" value="0" checked onchange="updateCalculation()" class="text-brand-500 focus:ring-brand-400">
+                <div>
+                  <div class="font-bold text-sm text-stone-900">毛况良好</div>
+                  <div class="text-[11px] text-stone-500">日常微脏，无打结</div>
+                </div>
+              </label>
+
+              <label class="fur-btn flex items-center gap-3 p-3.5 rounded-2xl border-2 border-stone-200 hover:border-brand-300 bg-stone-50/50 cursor-pointer transition-all">
+                <input type="radio" name="fur" value="30" onchange="updateCalculation()" class="text-brand-500 focus:ring-brand-400">
+                <div>
+                  <div class="font-bold text-sm text-stone-900">密毛/换毛季</div>
+                  <div class="text-[11px] text-stone-500">深层浮毛多 (+¥30)</div>
+                </div>
+              </label>
+
+              <label class="fur-btn flex items-center gap-3 p-3.5 rounded-2xl border-2 border-stone-200 hover:border-brand-300 bg-stone-50/50 cursor-pointer transition-all">
+                <input type="radio" name="fur" value="60" onchange="updateCalculation()" class="text-brand-500 focus:ring-brand-400">
+                <div>
+                  <div class="font-bold text-sm text-stone-900">局部打结需开毛</div>
+                  <div class="text-[11px] text-stone-500">手工无痛拆结 (+¥60)</div>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- 第三步：核心套餐 -->
+          <div>
+            <label class="text-sm font-bold text-stone-900 flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">3</span>
+              <span>选择洗护套餐</span>
+            </label>
+            <div class="space-y-2.5" id="package-plan-selector">
+              
+              <label class="package-card flex items-center justify-between p-4 rounded-2xl border-2 border-brand-500 bg-amber-50/60 cursor-pointer transition-all">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="plan" value="basic" data-price="0" data-time="60" checked onchange="updateCalculation()" class="text-brand-500 focus:ring-brand-400">
+                  <div>
+                    <span class="font-bold text-stone-900 text-sm">经典净澈护理套餐</span>
+                    <p class="text-xs text-stone-500">含12道标准流程：双遍洗发+护毛+耳眼指甲肛门腺清洁</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-stone-600 bg-white px-2.5 py-1 rounded-lg border border-stone-200">基础包含</span>
+              </label>
+
+              <label class="package-card flex items-center justify-between p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-300 bg-white cursor-pointer transition-all">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="plan" value="spa" data-price="60" data-time="90" onchange="updateCalculation()" class="text-brand-500 focus:ring-brand-400">
+                  <div>
+                    <span class="font-bold text-stone-900 text-sm">深层碳酸泉微气泡SPA水疗套餐</span>
+                    <p class="text-xs text-stone-500">去屑止痒、天然海泥敷毛、促进皮毛呼吸 (+¥60)</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-lg">热销爆款</span>
+              </label>
+
+              <label class="package-card flex items-center justify-between p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-300 bg-white cursor-pointer transition-all">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="plan" value="cut" data-price="110" data-time="130" onchange="updateCalculation()" class="text-brand-500 focus:ring-brand-400">
+                  <div>
+                    <span class="font-bold text-stone-900 text-sm">全身体感精细手工修毛造型套餐</span>
+                    <p class="text-xs text-stone-500">包含全套洗护 + 资深美容师全手工剪毛塑型 (+¥110)</p>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-purple-700 bg-purple-100 px-2.5 py-1 rounded-lg">大师定制</span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- 第四步：加选轻奢服务 -->
+          <div>
+            <label class="text-sm font-bold text-stone-900 flex items-center gap-2 mb-3">
+              <span class="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">4</span>
+              <span>可选升级增值服务（多选）</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              
+              <label class="addon-item flex items-center justify-between p-3.5 rounded-xl border border-stone-200 hover:border-amber-300 hover:bg-amber-50/30 cursor-pointer transition-all">
+                <div class="flex items-center gap-2.5">
+                  <input type="checkbox" id="addon-teeth" value="39" data-time="15" onchange="updateCalculation()" class="rounded text-brand-500 focus:ring-brand-400 w-4 h-4">
+                  <span class="text-xs font-medium text-stone-800">酵素无痛洁牙+除口臭</span>
+                </div>
+                <span class="text-xs font-bold text-brand-600">+¥39</span>
+              </label>
+
+              <label class="addon-item flex items-center justify-between p-3.5 rounded-xl border border-stone-200 hover:border-amber-300 hover:bg-amber-50/30 cursor-pointer transition-all">
+                <div class="flex items-center gap-2.5">
+                  <input type="checkbox" id="addon-paw" value="25" data-time="10" onchange="updateCalculation()" class="rounded text-brand-500 focus:ring-brand-400 w-4 h-4">
+                  <span class="text-xs font-medium text-stone-800">粉嫩肉球乳木果油滋养</span>
+                </div>
+                <span class="text-xs font-bold text-brand-600">+¥25</span>
+              </label>
+
+              <label class="addon-item flex items-center justify-between p-3.5 rounded-xl border border-stone-200 hover:border-amber-300 hover:bg-amber-50/30 cursor-pointer transition-all">
+                <div class="flex items-center gap-2.5">
+                  <input type="checkbox" id="addon-medic" value="49" data-time="20" onchange="updateCalculation()" class="rounded text-brand-500 focus:ring-brand-400 w-4 h-4">
+                  <span class="text-xs font-medium text-stone-800">中草药抑菌除螨药浴</span>
+                </div>
+                <span class="text-xs font-bold text-brand-600">+¥49</span>
+              </label>
+
+              <label class="addon-item flex items-center justify-between p-3.5 rounded-xl border border-stone-200 hover:border-amber-300 hover:bg-amber-50/30 cursor-pointer transition-all">
+                <div class="flex items-center gap-2.5">
+                  <input type="checkbox" id="addon-shuttle" value="45" data-time="0" onchange="updateCalculation()" class="rounded text-brand-500 focus:ring-brand-400 w-4 h-4">
+                  <span class="text-xs font-medium text-stone-800">5公里内专车恒温接送</span>
+                </div>
+                <span class="text-xs font-bold text-brand-600">+¥45</span>
+              </label>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 右侧计算小票预览与CTA卡片 -->
+        <div class="lg:col-span-5 bg-gradient-to-br from-stone-900 to-stone-800 rounded-3xl p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden">
+          <!-- 装饰水印 -->
+          <div class="absolute -right-12 -bottom-12 opacity-5 pointer-events-none">
+            <i data-lucide="paw-print" class="w-64 h-64"></i>
+          </div>
+
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+            <div>
+              <div class="text-xs text-amber-400 font-semibold tracking-wider uppercase">ESTIMATED RECEIPT</div>
+              <h3 class="text-lg font-bold mt-0.5">实时智能预算单</h3>
+            </div>
+            <span class="px-2.5 py-1 rounded-md bg-white/10 text-white text-[11px] font-mono">#PAW-2026</span>
+          </div>
+
+          <!-- 明细列表 -->
+          <div class="space-y-3 text-xs border-b border-white/10 pb-6 mb-6">
+            <div class="flex justify-between text-stone-300">
+              <span>基础宠型起步费用</span>
+              <span id="calc-base-price" class="font-mono font-bold text-white">¥88</span>
+            </div>
+            <div class="flex justify-between text-stone-300">
+              <span>毛况开毛调理附加</span>
+              <span id="calc-fur-price" class="font-mono font-bold text-white">¥0</span>
+            </div>
+            <div class="flex justify-between text-stone-300">
+              <span>套餐方案级别升级</span>
+              <span id="calc-plan-price" class="font-mono font-bold text-white">¥0</span>
+            </div>
+            <div class="flex justify-between text-stone-300">
+              <span>增值定制项目合算</span>
+              <span id="calc-addon-price" class="font-mono font-bold text-white">¥0</span>
+            </div>
+            <div class="flex justify-between text-emerald-400 pt-1">
+              <span class="flex items-center gap-1"><i data-lucide="gift" class="w-3 h-3"></i> 首次线上预约特惠</span>
+              <span class="font-mono font-bold">-¥20</span>
+            </div>
+          </div>
+
+          <!-- 总价与时长展示 -->
+          <div class="grid grid-cols-2 gap-4 mb-6 bg-white/5 p-4 rounded-2xl border border-white/10">
+            <div>
+              <div class="text-[11px] text-stone-400">预计总花费 (已减免)</div>
+              <div class="text-3xl sm:text-4xl font-black text-amber-400 mt-1 flex items-baseline">
+                <span class="text-base font-normal mr-0.5">¥</span>
+                <span id="calc-total-price">68</span>
+              </div>
+            </div>
+            <div class="border-l border-white/10 pl-4">
+              <div class="text-[11px] text-stone-400">预计服务用时</div>
+              <div class="text-2xl font-bold text-white mt-1.5 flex items-baseline gap-1">
+                <i data-lucide="timer" class="w-5 h-5 text-amber-400"></i>
+                <span id="calc-total-time">60</span>
+                <span class="text-xs text-stone-400 font-normal">分钟</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 承诺贴士 -->
+          <div class="text-[11px] text-stone-400 space-y-1.5 mb-8">
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>报价即终价，到店不临时推销加价</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>免费赠送洗护过程高清照与微视频</span>
+            </div>
+          </div>
+
+          <!-- 按钮：带参预约 -->
+          <button onclick="bookWithCalculator()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-stone-950 font-black text-sm tracking-wide shadow-glow transition-all flex items-center justify-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>带入此方案，锁定今天档期</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 洗护前后互动滑块 Before & After Slider Section -->
+  <section id="before-after" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-amber-100/60 px-3 py-1 rounded-full">TRANSFORMATION</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-3 tracking-tight">洗护前后惊艳蜕变 · 真实记录</h2>
+      <p class="text-stone-500 text-sm sm:text-base mt-2">
+        拖动中间滑块对比：从“流浪风小炸毛”到“软萌圆滚滚棉花糖”，爱与专业看得见。
+      </p>
+    </div>
+
+    <!-- 互动对比滑块容器 -->
+    <div class="max-w-4xl mx-auto bg-white p-3 sm:p-5 rounded-3xl shadow-xl border border-stone-200/80">
+      
+      <div id="ba-slider" class="ba-slider-container relative rounded-2xl h-[360px] sm:h-[480px] cursor-ew-resize">
+        
+        <!-- 底图：洗护后 (After) -->
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=80" 
+             alt="洗护修剪后可爱整洁的狗狗" 
+             class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+        <div class="absolute top-4 right-4 bg-emerald-600/90 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10 flex items-center gap-1.5 backdrop-blur-sm">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> 洗护后 · 蓬松软萌
+        </div>
+
+        <!-- 顶图：洗护前 (Before) 通过动态clip展示 -->
+        <div id="ba-overlay" class="ba-overlay-image">
+          <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1200&q=80" 
+               alt="洗护前毛发凌乱微脏的小狗" 
+               class="absolute top-0 left-0 max-w-none h-full w-[100vw] max-w-[800px] sm:max-w-[896px] object-cover pointer-events-none">
+          <div class="absolute top-4 left-4 bg-stone-900/80 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10 flex items-center gap-1.5 backdrop-blur-sm">
+            <i data-lucide="frown" class="w-3.5 h-3.5 text-amber-300"></i> 洗护前 · 炸毛油腻
+          </div>
+        </div>
+
+        <!-- 中间可拖动的控制杆与手柄 -->
+        <div id="ba-handle" class="ba-handle bg-white shadow-2xl flex items-center justify-center z-20">
+          <div class="w-10 h-10 rounded-full bg-brand-500 text-white shadow-lg flex items-center justify-center border-2 border-white">
+            <i data-lucide="chevrons-left-right" class="w-5 h-5"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-stone-500 px-3 py-3 mt-1">
+        <span class="flex items-center gap-1"><i data-lucide="mouse-pointer-click" class="w-3.5 h-3.5 text-brand-500"></i> 支持鼠标按住或手指左右拖拽滑块查看细节</span>
+        <span class="font-medium text-stone-700">案例实拍：金毛「麦昆」换季爆毛SPA体验</span>
+      </div>
+
+    </div>
+
+    <!-- 更多真实洗护照片画廊 -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 max-w-4xl mx-auto">
+      
+      <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-sm">
+        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=500&q=80" 
+             alt="比熊雪球造型" 
+             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-xs">
+          <span class="font-bold">比熊「米粒」</span>
+          <span class="text-[10px] text-amber-300">日系甜美大圆头</span>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-sm">
+        <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=500&q=80" 
+             alt="猫咪洗护完成梳理" 
+             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-xs">
+          <span class="font-bold">布偶「仙仙」</span>
+          <span class="text-[10px] text-amber-300">丝蛋白去油深层SPA</span>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-sm">
+        <img src="https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?auto=format&fit=crop&w=500&q=80" 
+             alt="小狗吹风完成" 
+             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-xs">
+          <span class="font-bold">柯基「墩墩」</span>
+          <span class="text-[10px] text-amber-300">桃心屁屁精修修饰</span>
+        </div>
+      </div>
+
+      <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-sm">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=500&q=80" 
+             alt="金毛泡澡完大笑" 
+             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-3 flex flex-col justify-end text-white text-xs">
+          <span class="font-bold">拉布拉多「欢欢」</span>
+          <span class="text-[10px] text-amber-300">皮脂平衡药浴调理</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 全透明洗护环境与设施 (Clean Studio & Safety) -->
+  <section id="environment" class="py-20 bg-stone-900 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-amber-400 font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">SMART & STERILE FACILITY</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            不惜成本打造的<br>
+            <span class="text-amber-400">医护级净洁空间</span>
+          </h2>
+          <p class="text-stone-400 text-sm sm:text-base leading-relaxed">
+            我们深知环境对毛孩子情绪与健康的致命影响。店面配备恒温双向新风系统、日本超微气泡水处理设备、专业抗噪吹吸风一体机，让每一秒都沐浴在安全与舒适中。
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl">
+              <div class="flex items-center gap-3 text-amber-400 mb-2">
+                <i data-lucide="wind" class="w-5 h-5"></i>
+                <h4 class="text-white font-bold text-sm">24h负压新风除味</h4>
+              </div>
+              <p class="text-stone-400 text-xs leading-relaxed">
+                全店每小时换气12次，进门闻不到一丝动物异味，保持森林般清新空气。
+              </p>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl">
+              <div class="flex items-center gap-3 text-amber-400 mb-2">
+                <i data-lucide="volume-x" class="w-5 h-5"></i>
+                <h4 class="text-white font-bold text-sm">变频静音降噪吹风</h4>
+              </div>
+              <p class="text-stone-400 text-xs leading-relaxed">
+                运行噪音低于52分贝，远离刺耳尖啸，大幅降低幼犬与猫咪的心跳加速。
+              </p>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl">
+              <div class="flex items-center gap-3 text-amber-400 mb-2">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                <h4 class="text-white font-bold text-sm">医用双门紫外灭菌柜</h4>
+              </div>
+              <p class="text-stone-400 text-xs leading-relaxed">
+                一梳一消，毛巾使用75℃高温蒸汽清洗烘干，独立塑封杜绝任何真菌螨虫。
+              </p>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl">
+              <div class="flex items-center gap-3 text-amber-400 mb-2">
+                <i data-lucide="cup-soda" class="w-5 h-5"></i>
+                <h4 class="text-white font-bold text-sm">家长休息特调饮品吧</h4>
+              </div>
+              <p class="text-stone-400 text-xs leading-relaxed">
+                透明玻璃吧台提供现磨特调咖啡与免费茶点，实时大屏幕无死角直播洗护。
+              </p>
+            </div>
+
+          </div>
+
+          <div class="pt-2">
+            <button onclick="openContactModal()" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold text-sm transition-colors">
+              <span>预约到店参观全透明操作间</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-stone-800 border border-white/10">
+              <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=600&q=80" 
+                   alt="宠物洗护透明环境" 
+                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="rounded-2xl overflow-hidden aspect-video bg-stone-800 border border-white/10">
+              <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80" 
+                   alt="洁净无菌梳理台" 
+                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+          <div class="space-y-4 pt-6">
+            <div class="rounded-2xl overflow-hidden aspect-video bg-stone-800 border border-white/10">
+              <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=600&q=80" 
+                   alt="恒温软水SPA浴缸" 
+                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="rounded-2xl overflow-hidden aspect-[4/5] bg-stone-800 border border-white/10">
+              <img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a?auto=format&fit=crop&w=600&q=80" 
+                   alt="毛发造型室" 
+                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 金牌持证美容师团队 Team Section -->
+  <section id="team" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-amber-100/60 px-3 py-1 rounded-full">EXPERT GROOMERS</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-3 tracking-tight">持证上岗 · 用温柔懂它们的心思</h2>
+      <p class="text-stone-500 text-sm sm:text-base mt-2">
+        均具备3年以上名门训犬与赛级美容功底，通过动物心理学及轻柔抚触考核。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- 美容师 1 -->
+      <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-soft text-center group hover:border-amber-400 hover:shadow-hover transition-all">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden p-1.5 border-2 border-dashed border-amber-300 mb-4 group-hover:scale-105 transition-transform">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" 
+               alt="美容总监-林晨Vivian" 
+               class="w-full h-full rounded-full object-cover">
+        </div>
+        <span class="text-[11px] font-bold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full">从业 9 年 · 资深首席</span>
+        <h3 class="text-lg font-bold text-stone-900 mt-2">林晨 Vivian</h3>
+        <p class="text-xs text-stone-500 mb-3">CKU认证A级犬类美容大师</p>
+        <p class="text-xs text-stone-600 leading-relaxed border-t border-stone-100 pt-3 text-left">
+          擅长日韩系贵宾、比熊萌系圆头手工修形，曾获华东名犬美容公开赛金奖。
+        </p>
+        <button onclick="quickBookStylist('林晨 Vivian')" class="w-full mt-4 py-2 rounded-xl bg-stone-100 hover:bg-brand-500 hover:text-white text-stone-700 text-xs font-semibold transition-all">
+          指定该美容师
+        </button>
+      </div>
+
+      <!-- 美容师 2 -->
+      <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-soft text-center group hover:border-amber-400 hover:shadow-hover transition-all">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden p-1.5 border-2 border-dashed border-emerald-300 mb-4 group-hover:scale-105 transition-transform">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" 
+               alt="猫咪低应激护理专家-周野Kevin" 
+               class="w-full h-full rounded-full object-cover">
+        </div>
+        <span class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">从业 6 年 · 猫咪专精</span>
+        <h3 class="text-lg font-bold text-stone-900 mt-2">周野 Kevin</h3>
+        <p class="text-xs text-stone-500 mb-3">国际猫科低应激护理认证师</p>
+        <p class="text-xs text-stone-600 leading-relaxed border-t border-stone-100 pt-3 text-left">
+          专攻胆小敏感猫咪无麻醉深度去油与爆毛调理，被很多猫妈妈称为“猫语者”。
+        </p>
+        <button onclick="quickBookStylist('周野 Kevin')" class="w-full mt-4 py-2 rounded-xl bg-stone-100 hover:bg-brand-500 hover:text-white text-stone-700 text-xs font-semibold transition-all">
+          指定该美容师
+        </button>
+      </div>
+
+      <!-- 美容师 3 -->
+      <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-soft text-center group hover:border-amber-400 hover:shadow-hover transition-all">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden p-1.5 border-2 border-dashed border-sky-300 mb-4 group-hover:scale-105 transition-transform">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80" 
+               alt="高级皮毛调理师-苏小曼Grace" 
+               class="w-full h-full rounded-full object-cover">
+        </div>
+        <span class="text-[11px] font-bold text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-full">从业 5 年 · SPA专家</span>
+        <h3 class="text-lg font-bold text-stone-900 mt-2">苏小曼 Grace</h3>
+        <p class="text-xs text-stone-500 mb-3">日本炭酸泉水疗护理特邀技师</p>
+        <p class="text-xs text-stone-600 leading-relaxed border-t border-stone-100 pt-3 text-left">
+          精通各类犬种换季皮屑、真菌敏感的药浴与精油水疗，手法细致极其有耐心。
+        </p>
+        <button onclick="quickBookStylist('苏小曼 Grace')" class="w-full mt-4 py-2 rounded-xl bg-stone-100 hover:bg-brand-500 hover:text-white text-stone-700 text-xs font-semibold transition-all">
+          指定该美容师
+        </button>
+      </div>
+
+      <!-- 美容师 4 -->
+      <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-soft text-center group hover:border-amber-400 hover:shadow-hover transition-all">
+        <div class="w-28 h-28 mx-auto rounded-full overflow-hidden p-1.5 border-2 border-dashed border-rose-300 mb-4 group-hover:scale-105 transition-transform">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" 
+               alt="大型犬体态管理师-陈昊Leo" 
+               class="w-full h-full rounded-full object-cover">
+        </div>
+        <span class="text-[11px] font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full">从业 7 年 · 力量与轻柔</span>
+        <h3 class="text-lg font-bold text-stone-900 mt-2">陈昊 Leo</h3>
+        <p class="text-xs text-stone-500 mb-3">大型伴侣犬行为学认证训导员</p>
+        <p class="text-xs text-stone-600 leading-relaxed border-t border-stone-100 pt-3 text-left">
+          擅长金毛、阿拉斯加、古代牧羊犬等大型犬快速开结梳理与爪垫养护。
+        </p>
+        <button onclick="quickBookStylist('陈昊 Leo')" class="w-full mt-4 py-2 rounded-xl bg-stone-100 hover:bg-brand-500 hover:text-white text-stone-700 text-xs font-semibold transition-all">
+          指定该美容师
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 家长真实好评墙 Testimonials Section -->
+  <section id="testimonials" class="py-20 bg-amber-50/40 border-t border-amber-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+        <div>
+          <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-amber-100 px-3 py-1 rounded-full">REAL REVIEWS</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-2 tracking-tight">听听毛孩子家长怎么说</h2>
+          <p class="text-stone-500 text-sm sm:text-base mt-2">真实晒单与复购评价，每一声感谢都是我们坚持最高标准的动力。</p>
+        </div>
+        <div class="mt-4 md:mt-0 flex items-center gap-2 text-sm font-bold text-stone-800 bg-white px-4 py-2 rounded-2xl border border-amber-200 shadow-sm">
+          <div class="flex text-amber-400">
+            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+          </div>
+          <span>综合评分 4.98 / 5.0</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- 评价 1 -->
+        <div class="bg-white rounded-3xl p-7 border border-stone-200/80 shadow-soft flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" class="w-10 h-10 rounded-full object-cover" alt="用户头像">
+                <div>
+                  <div class="font-bold text-sm text-stone-900">暖暖的麻麻</div>
+                  <div class="text-[11px] text-stone-400">宝儿：2岁奶油色比熊「球球」</div>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              </div>
+            </div>
+            <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+              “以前在别家洗完回家总爱舔脚趾，还特别怕吹风机。这次来萌爪星空，林晨老师真的太温柔了！全透明玻璃我全程看着，球球居然在浴缸里舒服得眯着眼。剪的圆头萌化了，发朋友圈被问爆了哪家洗的！”
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-400">
+            <span class="text-amber-700 bg-amber-50 px-2 py-0.5 rounded font-medium">日韩萌系修毛 + 碳酸泉SPA</span>
+            <span>2天前点评</span>
+          </div>
+        </div>
+
+        <!-- 评价 2 -->
+        <div class="bg-white rounded-3xl p-7 border border-stone-200/80 shadow-soft flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" class="w-10 h-10 rounded-full object-cover" alt="用户头像">
+                <div>
+                  <div class="font-bold text-sm text-stone-900">Alex 陈先生</div>
+                  <div class="text-[11px] text-stone-400">宝儿：3岁重点色布偶「奥斯卡」</div>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              </div>
+            </div>
+            <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+              “猫咪洗澡最怕应激！周野老师的独立猫室太专业了，没有一点狗叫声，光线柔和，还放了猫咪专属音乐。尾巴上的顽固黑头和油脂全部乳化洗干净了，毛蓬松得像一团云，回家没有出现任何应激反应，吹爆！”
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-400">
+            <span class="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-medium">猫咪零应激抚慰洗护</span>
+            <span>1周前点评</span>
+          </div>
+        </div>
+
+        <!-- 评价 3 -->
+        <div class="bg-white rounded-3xl p-7 border border-stone-200/80 shadow-soft flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80" class="w-10 h-10 rounded-full object-cover" alt="用户头像">
+                <div>
+                  <div class="font-bold text-sm text-stone-900">郭郭与大金毛</div>
+                  <div class="text-[11px] text-stone-400">宝儿：70斤大金毛「大壮」</div>
+                </div>
+              </div>
+              <div class="flex text-amber-400">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+              </div>
+            </div>
+            <p class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-4">
+              “家里养大狗每次洗澡都像打仗，自己洗不仅腰酸背痛而且根本吹不透容易得湿疹。他们家专车上门接送简直救星！洗得极其干净，拔出来的浮毛装了一大袋，毛发香了整整两星期，果断办了年卡。”
+            </p>
+          </div>
+          <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-400">
+            <span class="text-amber-700 bg-amber-50 px-2 py-0.5 rounded font-medium">大型犬脱脂洗护 + 专车接送</span>
+            <span>3周前点评</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 常见问题 FAQ Section (手风琴交互) -->
+  <section id="faq" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-amber-100/60 px-3 py-1 rounded-full">QUESTIONS & ANSWERS</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 mt-3 tracking-tight">常见洗护疑问与到店须知</h2>
+      <p class="text-stone-500 text-sm sm:text-base mt-2">
+        如果您对爱宠的洗护还有顾虑，欢迎阅读以下解答或随时联系微信客服。
+      </p>
+    </div>
+
+    <div class="space-y-4" id="faq-accordion">
+      
+      <!-- FAQ 1 -->
+      <div class="faq-item bg-white rounded-2xl border border-stone-200/90 shadow-sm overflow-hidden transition-all">
+        <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-bold text-stone-900 text-sm sm:text-base hover:text-brand-600 transition-colors">
+          <span class="flex items-center gap-3">
+            <i data-lucide="help-circle" class="w-5 h-5 text-amber-500 shrink-0"></i>
+            <span>猫咪到店洗护真的不会产生严重应激吗？</span>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-stone-400 transition-transform duration-300 faq-icon"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3 bg-stone-50/40">
+          萌爪星空设立了完全独立的纯猫空间，物理隔绝所有犬吠声与狗狗气味。入店前会有15-20分钟的费洛蒙适应期。美容师会轻揉安抚，洗浴采用温水盆洗而非高压喷头，烘干使用超低音静音舱。若猫咪当天表现出极其剧烈的心率过速或攻击性，我们会立即中止操作并如实告知家长，绝不强制洗浴。
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item bg-white rounded-2xl border border-stone-200/90 shadow-sm overflow-hidden transition-all">
+        <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-bold text-stone-900 text-sm sm:text-base hover:text-brand-600 transition-colors">
+          <span class="flex items-center gap-3">
+            <i data-lucide="help-circle" class="w-5 h-5 text-amber-500 shrink-0"></i>
+            <span>洗护需要提前多久预约？周末可以直接带宠物去吗？</span>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-stone-400 transition-transform duration-300 faq-icon"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3 bg-stone-50/40">
+          为了保障一宠一具的彻底消毒时间以及1对1精细洗护品质，我们全店实行<strong>100%预约制</strong>。工作日建议提前1-2天预约；周六、周日及节假日属于高峰期，强烈建议提前2-4天在线提交预约锁定工位，避免现场空跑等待。
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item bg-white rounded-2xl border border-stone-200/90 shadow-sm overflow-hidden transition-all">
+        <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-bold text-stone-900 text-sm sm:text-base hover:text-brand-600 transition-colors">
+          <span class="flex items-center gap-3">
+            <i data-lucide="help-circle" class="w-5 h-5 text-amber-500 shrink-0"></i>
+            <span>到店洗护对宠物的疫苗和健康有什么要求？</span>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-stone-400 transition-transform duration-300 faq-icon"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3 bg-stone-50/40">
+          为保护所有毛孩子的健康：幼宠需满3月龄且完成核心疫苗接种满7天以上；成年猫犬需具备有效狂犬及常规联苗接种史；暂不接待刚做完绝育手术未拆线、处于发情期有流血症状、或患有烈性急性传染病的宠物。
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item bg-white rounded-2xl border border-stone-200/90 shadow-sm overflow-hidden transition-all">
+        <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-bold text-stone-900 text-sm sm:text-base hover:text-brand-600 transition-colors">
+          <span class="flex items-center gap-3">
+            <i data-lucide="help-circle" class="w-5 h-5 text-amber-500 shrink-0"></i>
+            <span>专车接送服务是如何运作的？范围有多大？</span>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-stone-400 transition-transform duration-300 faq-icon"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3 bg-stone-50/40">
+          我们自备多辆改装恒温宠物专车，配备独立安全航空箱与空气消毒机，一车一消毒。标准服务覆盖方圆5公里以内（超过部分按3元/公里计算）。接送时会与家长核对交接单，洗完后原车安全护送回家。
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item bg-white rounded-2xl border border-stone-200/90 shadow-sm overflow-hidden transition-all">
+        <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-bold text-stone-900 text-sm sm:text-base hover:text-brand-600 transition-colors">
+          <span class="flex items-center gap-3">
+            <i data-lucide="help-circle" class="w-5 h-5 text-amber-500 shrink-0"></i>
+            <span>狗狗身上有皮屑、轻微湿疹或真菌，洗澡会加重吗？</span>
+          </span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-stone-400 transition-transform duration-300 faq-icon"></i>
+        </button>
+        <div class="faq-content hidden px-5 pb-5 text-stone-600 text-xs sm:text-sm leading-relaxed border-t border-stone-100 pt-3 bg-stone-50/40">
+          普通碱性香波可能会加重敏感，但我们提供专门的“中草药抑菌药浴”及“日本高浓度碳酸泉微气泡”。微气泡能深入毛囊冲洗细菌与皮脂栓，草药成分能快速止痒消炎。洗完后我们会由美容师用低温将毛根彻底吹透，避免潮湿引起真菌扩散。
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 门店位置与可爱探店地图 Section -->
+  <section id="location" class="scroll-mt-24 py-20 lg:py-24 bg-gradient-to-b from-stone-50 via-amber-50/30 to-warm-bg relative overflow-hidden border-t border-amber-900/5">
+    <!-- 背景可爱装饰气泡 -->
+    <div class="absolute -top-12 -left-12 w-64 h-64 bg-amber-200/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-16 -right-16 w-80 h-80 bg-rose-200/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- 区域标题 -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100/90 text-brand-700 text-xs font-bold tracking-wide uppercase shadow-sm">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500"></i>
+          <span>STORE LOCATION & PET MAP · 门店位置</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 mt-4 tracking-tight">
+          欢迎光临萌爪星空 · 探店与交通路线
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base mt-3 leading-relaxed">
+          我们的门店位于<strong>上海市宜川路街道贾运620号</strong>。特别绘制可爱清新的治愈系宠物店探店地图，为您与毛孩子开启无忧顺畅的到店之旅。
+        </p>
+      </div>
+
+      <!-- 地图与门店信息双栏布局 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- 左侧：AI手绘可爱清新宠物店风格地图展示卡片 -->
+        <div class="lg:col-span-7">
+          <div class="bg-white rounded-3xl p-3 sm:p-5 border-2 border-amber-200/80 shadow-soft hover:shadow-hover transition-all duration-300 group relative overflow-hidden">
+            
+            <!-- 地图顶部标签栏 -->
+            <div class="flex items-center justify-between pb-3 px-2 border-b border-stone-100 text-xs text-stone-500">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-400 animate-pulse"></span>
+                <span class="font-bold text-stone-800">萌爪星空 · 可爱手绘探店地图</span>
+              </div>
+              <span class="text-[11px] bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-full font-semibold border border-amber-200/60 flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3 text-amber-500"></i>
+                <span>可爱清新风 · 专属标注</span>
+              </span>
+            </div>
+
+            <!-- 地图图片容器 -->
+            <div class="relative mt-3 rounded-2xl overflow-hidden bg-amber-50/50 cursor-pointer shadow-inner" onclick="openMapModal()">
+              <img 
+                src="assets/images/pet-store-map.png" 
+                alt="萌爪星空宠物店位置地图 - 上海市宜川路街道贾运620号" 
+                class="w-full h-auto object-cover rounded-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+              >
+              <!-- 悬浮点击放大遮罩提示 -->
+              <div class="absolute inset-0 bg-stone-900/15 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                <span class="bg-white/95 text-stone-800 text-xs font-bold px-4 py-2 rounded-full shadow-lg backdrop-blur-sm flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                  <i data-lucide="zoom-in" class="w-4 h-4 text-brand-600"></i>
+                  <span>点击查看高清地图</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- 地图底部便利操作栏 -->
+            <div class="mt-4 pt-3 border-t border-stone-100 flex flex-wrap items-center justify-between gap-3 text-xs px-2">
+              <span class="text-stone-500 flex items-center gap-1.5">
+                <i data-lucide="navigation" class="w-3.5 h-3.5 text-brand-500"></i>
+                <span>定位点：<strong class="text-stone-800">上海市宜川路街道贾运620号</strong></span>
+              </span>
+              <div class="flex items-center gap-2">
+                <button onclick="copyAddress()" class="px-3 py-1.5 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 font-bold transition-colors flex items-center gap-1">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span>复制地址</span>
+                </button>
+                <button onclick="openMapModal()" class="px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold transition-colors flex items-center gap-1">
+                  <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                  <span>大图预览</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 右侧：详细到店路线、泊车指引与营业指南 -->
+        <div class="lg:col-span-5 space-y-5">
+          
+          <!-- 核心门店地址卡片 -->
+          <div class="bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/80 shadow-soft relative overflow-hidden">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 to-brand-500 text-white flex items-center justify-center shrink-0 shadow-soft">
+                <i data-lucide="map-pin" class="w-6 h-6"></i>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-xl font-black text-stone-900">萌爪星空 · 现代美学馆</h3>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">正常营业中</span>
+                </div>
+                <p class="text-stone-800 font-bold text-sm sm:text-base mt-2 flex items-center gap-1.5">
+                  <i data-lucide="map-pin-check" class="w-4 h-4 text-brand-600 shrink-0"></i>
+                  <span>上海市宜川路街道贾运620号</span>
+                </p>
+                <p class="text-stone-500 text-xs mt-1.5 leading-relaxed">
+                  临街醒目位置，配有定制粉金萌宠发光招牌，门前专设宠物安全出入缓冲区，防惊吓与冲撞。
+                </p>
+              </div>
+            </div>
+
+            <!-- 一键导航与复制按钮组 -->
+            <div class="mt-6 pt-5 border-t border-stone-100 grid grid-cols-2 gap-3">
+              <button onclick="copyAddress()" class="py-2.5 px-3 rounded-xl bg-gradient-to-r from-brand-500 to-amber-500 hover:from-brand-600 hover:to-amber-600 text-white font-bold text-xs shadow-soft hover:shadow-hover hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-1.5">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span>复制导航地址</span>
+              </button>
+              <button onclick="openNavigationApp()" class="py-2.5 px-3 rounded-xl border border-stone-300 hover:border-amber-400 hover:bg-amber-50 text-stone-700 font-bold text-xs transition-all flex items-center justify-center gap-1.5">
+                <i data-lucide="compass" class="w-4 h-4 text-brand-600"></i>
+                <span>高德地图导航</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 详细出行指南列表 -->
+          <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-soft space-y-3.5">
+            <h4 class="font-extrabold text-stone-900 text-sm flex items-center gap-2">
+              <i data-lucide="route" class="w-4 h-4 text-brand-500"></i>
+              <span>便捷到店出行指引</span>
+            </h4>
+
+            <div class="space-y-3 text-xs text-stone-600">
+              
+              <!-- 方案 1: 公共交通 -->
+              <div class="flex items-start gap-3 p-3 rounded-2xl bg-stone-50/70 border border-stone-100">
+                <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="bus" class="w-4 h-4"></i>
+                </div>
+                <div class="leading-relaxed">
+                  <strong class="text-stone-900 block mb-0.5">公共交通 & 步行</strong>
+                  <span>位于宜川路街道核心地段，出站后沿宜川路街道直行前往贾运620号，步行约3-5分钟即见萌爪星空门店。</span>
+                </div>
+              </div>
+
+              <!-- 方案 2: 自驾泊车 -->
+              <div class="flex items-start gap-3 p-3 rounded-2xl bg-stone-50/70 border border-stone-100">
+                <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="car" class="w-4 h-4"></i>
+                </div>
+                <div class="leading-relaxed">
+                  <strong class="text-stone-900 block mb-0.5">自驾车前往 · 专属VIP临停车位</strong>
+                  <span>直接搜索导航「上海市宜川路街道贾运620号」，门店门口配有专属安心停车位，美容师可协助抱宠。</span>
+                </div>
+              </div>
+
+              <!-- 方案 3: 恒温专车上门 -->
+              <div class="flex items-start gap-3 p-3 rounded-2xl bg-amber-50/70 border border-amber-100">
+                <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="truck" class="w-4 h-4"></i>
+                </div>
+                <div class="leading-relaxed">
+                  <strong class="text-amber-900 block mb-0.5">全城改装恒温专车 · 上门安全接送</strong>
+                  <span>周边5公里以内配备专车接送服务，车内独立航空箱+24℃恒温空气过滤消杀，免除奔波折腾。</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 营业时间与咨询 -->
+            <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
+              <span class="flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-500"></i>
+                <span>营业时间：<strong>09:30 - 21:00</strong>（全预约制）</span>
+              </span>
+              <a href="tel:4008889988" class="text-brand-600 hover:text-brand-700 font-bold flex items-center gap-1">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                <span>400-888-9988</span>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 底部预约CTA大Banner -->
+  <section class="py-16 bg-gradient-to-r from-brand-600 via-amber-500 to-orange-500 text-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
+        让毛孩子从今天起，享受被尊重的洗护时光
+      </h2>
+      <p class="text-amber-100 text-sm sm:text-base max-w-2xl mx-auto mb-8">
+        首次线上预约立减 ¥20 · 赠送专属洗护前后对比高清九宫格返图 · 全程透明可视
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="openBookingModal()" class="w-full sm:w-auto px-10 py-4 rounded-full bg-white text-stone-900 hover:bg-stone-100 font-extrabold text-base shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+          <i data-lucide="calendar-heart" class="w-5 h-5 text-brand-600"></i>
+          <span>一键在线预约档期</span>
+        </button>
+        <button onclick="openContactModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-black/20 hover:bg-black/30 text-white border border-white/30 font-bold text-base transition-all flex items-center justify-center gap-2">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+          <span>咨询当班店长</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 Footer -->
+  <footer class="bg-stone-950 text-stone-400 text-xs sm:text-sm py-16 border-t border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        
+        <!-- 品牌专栏 -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center shadow-soft">
+              <i data-lucide="paw-print" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-bold text-white">萌爪星空 · Paws & Glow</span>
+          </div>
+          <p class="text-stone-400 text-xs leading-relaxed max-w-sm">
+            以爱宠身心健康为信仰的现代宠物美学生活馆。全透明洗护、纯天然低敏洗浴、猫咪零应激空间，致力于重新定义中国宠物洗护体验。
+          </p>
+          <div class="flex items-center gap-4 pt-2 text-stone-300">
+            <button onclick="openContactModal()" class="w-9 h-9 rounded-full bg-stone-900 hover:bg-amber-500 hover:text-white flex items-center justify-center transition-colors" title="微信公众号与客服">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </button>
+            <a href="tel:4008889988" class="w-9 h-9 rounded-full bg-stone-900 hover:bg-amber-500 hover:text-white flex items-center justify-center transition-colors" title="服务热线">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </a>
+            <button onclick="copyAddress()" class="w-9 h-9 rounded-full bg-stone-900 hover:bg-amber-500 hover:text-white flex items-center justify-center transition-colors" title="一键复制导航地址：上海市宜川路街道贾运620号">
+              <i data-lucide="map-pin" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 快捷链接 -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4">洗护服务</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#services" class="hover:text-amber-400 transition-colors">犬类清爽深层洗</a></li>
+            <li><a href="#services" class="hover:text-amber-400 transition-colors">猫咪独立静音洗护</a></li>
+            <li><a href="#services" class="hover:text-amber-400 transition-colors">微气泡碳酸泉SPA</a></li>
+            <li><a href="#services" class="hover:text-amber-400 transition-colors">日韩萌系手工修形</a></li>
+            <li><a href="#services" class="hover:text-amber-400 transition-colors">大型犬大池畅洗</a></li>
+          </ul>
+        </div>
+
+        <!-- 门店信息 -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4">营业资讯</h4>
+          <ul class="space-y-2.5 text-xs text-stone-400">
+            <li class="flex items-start gap-2">
+              <i data-lucide="clock" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+              <span>周一至周日 09:30 - 21:00<br>(无节假日限制，全预约制)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i data-lucide="map-pin" class="w-4 h-4 text-amber-500 shrink-0 mt-0.5"></i>
+              <span>上海市宜川路街道贾运620号 (萌爪星空生活馆，附宠物专属停车位)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <i data-lucide="car" class="w-4 h-4 text-amber-500 shrink-0"></i>
+              <span>全城提供恒温专车接送</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 快捷预约扫码 -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-4">快速联系</h4>
+          <div class="bg-stone-900 p-4 rounded-2xl border border-stone-800 text-center space-y-2">
+            <div class="w-24 h-24 mx-auto bg-white p-2 rounded-xl flex items-center justify-center">
+              <div class="w-full h-full border-2 border-stone-800 border-dashed rounded-lg flex flex-col items-center justify-center text-[10px] text-stone-800 font-bold p-1 leading-tight">
+                <i data-lucide="qr-code" class="w-10 h-10 text-stone-900 mb-0.5"></i>
+                <span>微信扫一扫</span>
+              </div>
+            </div>
+            <p class="text-[11px] text-stone-400">微信号：PawsGlow_VIP</p>
+            <button onclick="copyWechat()" class="w-full py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors">
+              复制微信号
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 底部版权与申明 -->
+      <div class="pt-8 border-t border-stone-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>© 2026 萌爪星空 Paws & Glow 宠物生活馆. 版权所有 保留所有权利.</p>
+        <div class="flex items-center space-x-6 text-[11px]">
+          <a href="#" onclick="alert('本店持有国家动物防疫条件合格证、执业宠物美容从业资格证与企业营业执照，合规透明。'); return false;" class="hover:text-stone-300">执业资质</a>
+          <a href="#" onclick="alert('承诺：所有洗护台面每客必消，毛巾一用一消毒封存，绝不使用刺激性劣质香波，保障毛孩子生命健康。'); return false;" class="hover:text-stone-300">卫生承诺书</a>
+          <a href="#" onclick="alert('退款政策：未发生实际洗护服务前随时全额无条件退款；如因本店原因导致洗护体验不佳，承诺100%重洗或退款。'); return false;" class="hover:text-stone-300">退款保障</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 浮动快速小部件 (悬浮客服与返回顶部) -->
+  <div class="fixed bottom-6 right-6 z-30 flex flex-col items-end gap-3">
+    
+    <!-- 快捷拨号/微信按钮 -->
+    <button onclick="openContactModal()" class="w-12 h-12 rounded-full bg-emerald-500 text-white shadow-hover hover:scale-110 flex items-center justify-center transition-all group relative" title="咨询微信客服">
+      <i data-lucide="message-circle" class="w-6 h-6"></i>
+      <span class="absolute right-14 bg-stone-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
+        在线咨询店长
+      </span>
+    </button>
+
+    <!-- 快捷预约悬浮按钮 -->
+    <button onclick="openBookingModal()" class="w-14 h-14 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-hover hover:scale-110 flex items-center justify-center transition-all group relative animate-bounce" title="快速预约">
+      <i data-lucide="calendar-plus" class="w-7 h-7"></i>
+      <span class="absolute right-16 bg-stone-900 text-white text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md">
+        立即在线预约
+      </span>
+    </button>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hidden w-10 h-10 rounded-full bg-white/90 text-stone-700 shadow-md hover:bg-stone-100 flex items-center justify-center transition-all border border-stone-200" title="回到顶部">
+      <i data-lucide="arrow-up" class="w-4 h-4"></i>
+    </button>
+
+  </div>
+
+  <!-- 在线预约模态框 Modal -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl relative my-8 border border-stone-100 transform transition-all">
+      
+      <!-- 关闭按钮 -->
+      <button onclick="closeBookingModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-500 flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- 模态框标题 -->
+      <div class="mb-6">
+        <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-full">ONLINE RESERVATION</span>
+        <h3 class="text-2xl font-extrabold text-stone-900 mt-2">预约星级宠物洗护</h3>
+        <p class="text-xs text-stone-500 mt-1">提交后专属美容师将在15分钟内致电/微信确认档期详情</p>
+      </div>
+
+      <!-- 表单主体 -->
+      <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4 text-xs sm:text-sm">
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-stone-800 mb-1.5">家长姓名 *</label>
+            <input type="text" id="form-owner-name" required placeholder="例如：李女士" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-stone-800">
+          </div>
+          <div>
+            <label class="block font-bold text-stone-800 mb-1.5">联系手机号 *</label>
+            <input type="tel" id="form-phone" required pattern="[0-9]{11}" placeholder="11位手机号码" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-stone-800">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3">
+          <div>
+            <label class="block font-bold text-stone-800 mb-1.5">宠物类型 *</label>
+            <select id="form-pet-category" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-stone-800">
+              <option value="dog">狗狗汪星人</option>
+              <option value="cat">猫咪喵星人</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-stone-800 mb-1.5">爱宠名字 *</label>
+            <input type="text" id="form-pet-name" required placeholder="例如：波波" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-stone-800">
+          </div>
+          <div>
+            <label class="block font-bold text-stone-800 mb-1.5">体重大约 (kg)</label>
+            <input type="number" id="form-pet-weight" placeholder="如：5.5" step="0.1" class="w-full px-3 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-stone-800">
+          </div>
+        </div>
+
+        <!-- 期望到店日期与时段 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-bold text-stone-800 mb-1.5">预约日期 *</label>
+            <input type="date" id="form-date" required class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-stone-800">
+          </div>
+          <div>
+            <label class="block font-bold text-stone-800 mb-1.5">期望时段 *</label>
+            <select id="form-timeslot" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-stone-800">
+              <option value="09:30-11:30">上午场 09:30 - 11:30 (安静清闲)</option>
+              <option value="12:00-14:00">午间场 12:00 - 14:00</option>
+              <option value="14:30-17:00" selected>下午黄金档 14:30 - 17:00</option>
+              <option value="17:30-20:00">晚间场 17:30 - 20:00 (下班方便)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 选择意向洗护套餐 -->
+        <div>
+          <label class="block font-bold text-stone-800 mb-1.5">预约洗护服务项目 *</label>
+          <input type="text" id="form-service-item" required value="犬类活力清爽深层洗护" class="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-stone-800 font-medium">
+        </div>
+
+        <!-- 针对特殊习性备注 -->
+        <div>
+          <label class="block font-bold text-stone-800 mb-1.5">特殊习性与注意事项（选填）</label>
+          <textarea id="form-notes" rows="2" placeholder="如：胆小敏感、不要碰尾巴、近期有轻微换季皮屑、需要专车接送等..." class="w-full px-3.5 py-2 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-stone-800 text-xs"></textarea>
+        </div>
+
+        <!-- 提交按钮 -->
+        <div class="pt-2">
+          <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold text-base shadow-soft hover:shadow-hover transition-all flex items-center justify-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
+            <span>立即确认提交预约</span>
+          </button>
+          <p class="text-center text-[11px] text-stone-400 mt-2">
+            到店付款即可，无需提前充值，到店享受新客立减 ¥20 优惠
+          </p>
+        </div>
+
+      </form>
+
+      <!-- 提交成功反馈票据 (默认隐藏) -->
+      <div id="booking-success-view" class="hidden text-center py-6 space-y-4">
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto animate-bounce">
+          <i data-lucide="badge-check" class="w-10 h-10"></i>
+        </div>
+        <h4 class="text-2xl font-black text-stone-900">恭喜！预约申请已成功提交</h4>
+        <p class="text-xs text-stone-500 max-w-sm mx-auto leading-relaxed">
+          我们已为您在系统预留洗护工位，客服人员正在核对排期，稍后会主动与您电话或微信确认。
+        </p>
+
+        <!-- 模拟生成的电子预约凭证卡 -->
+        <div class="bg-stone-50 border border-stone-200 p-4 rounded-2xl text-left text-xs text-stone-700 max-w-sm mx-auto space-y-2">
+          <div class="flex justify-between border-b border-stone-200 pb-2">
+            <span class="text-stone-400">预约单号：</span>
+            <span id="success-order-id" class="font-mono font-bold text-brand-600">PG2026101788</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-400">爱宠：</span>
+            <span id="success-pet-name" class="font-bold">-</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-400">服务：</span>
+            <span id="success-service-name" class="font-bold">-</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-stone-400">时间：</span>
+            <span id="success-datetime" class="font-bold text-amber-600">-</span>
+          </div>
+          <div class="flex justify-between border-t border-stone-200/60 pt-2">
+            <span class="text-stone-400">到店地址：</span>
+            <span class="font-bold text-stone-800">上海市宜川路街道贾运620号</span>
+          </div>
+        </div>
+
+        <button onclick="closeBookingModal()" class="px-8 py-2.5 rounded-xl bg-stone-900 text-white font-bold text-xs hover:bg-stone-800 transition-all">
+          完成并关闭
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 地图大图预览模态框 Modal -->
+  <div id="map-modal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl relative border border-stone-100 overflow-hidden">
+      <button onclick="closeMapModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center transition-colors z-10">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="mb-3 px-2">
+        <h3 class="text-lg font-black text-stone-900 flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-5 h-5 text-brand-500"></i>
+          <span>萌爪星空宠物店位置地图（上海市宜川路街道贾运620号）</span>
+        </h3>
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-stone-200 bg-amber-50/30">
+        <img src="assets/images/pet-store-map.png" alt="萌爪星空宠物店地图高清原图" class="w-full h-auto max-h-[75vh] object-contain mx-auto">
+      </div>
+      <div class="mt-4 px-2 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <span class="text-stone-500">门店地址：<strong class="text-stone-800">上海市宜川路街道贾运620号</strong>（按图导航，期待与您和毛孩子相见）</span>
+        <button onclick="copyAddress()" class="px-4 py-2 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-600 transition-colors flex items-center gap-1.5 shadow-sm">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+          <span>复制完整地址</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 微信客服模态框 Modal -->
+  <div id="contact-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl relative border border-stone-100">
+      
+      <button onclick="closeContactModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-500 flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="message-square" class="w-6 h-6"></i>
+      </div>
+
+      <h3 class="text-xl font-bold text-stone-900">添加专属宠物洗护顾问</h3>
+      <p class="text-xs text-stone-500 mt-1 mb-4">一对一解答宠物洗护疑问、发视频看店、接送车调度</p>
+
+      <!-- 微信二维码 -->
+      <div class="w-44 h-44 mx-auto bg-stone-50 p-3 rounded-2xl border border-stone-200 flex items-center justify-center shadow-inner mb-4">
+        <div class="w-full h-full border-2 border-dashed border-stone-300 rounded-xl flex flex-col items-center justify-center p-2 text-stone-800">
+          <i data-lucide="qr-code" class="w-20 h-20 text-stone-800 mb-1"></i>
+          <span class="text-[11px] font-bold text-stone-600">微信扫码添加店长</span>
+        </div>
+      </div>
+
+      <div class="bg-stone-50 p-2.5 rounded-xl border border-stone-200 flex items-center justify-between text-xs mb-4">
+        <span class="text-stone-500 font-mono">微信号: <strong class="text-stone-900 font-bold">PawsGlow_VIP</strong></span>
+        <button onclick="copyWechat()" class="text-brand-600 hover:text-brand-700 font-bold px-2 py-1 rounded bg-amber-100/80">复制</button>
+      </div>
+
+      <a href="tel:4008889988" class="w-full py-2.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all">
+        <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+        <span>直接拨打客服电话 400-888-9988</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- 轻量全局通知 Toast 提示 -->
+  <div id="toast" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden bg-stone-900 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs sm:text-sm font-semibold flex items-center gap-2.5 border border-white/10 transition-all">
+    <i data-lucide="info" class="w-4 h-4 text-amber-400"></i>
+    <span id="toast-message">提示消息</span>
+  </div>
+
+  <!-- JavaScript 交互驱动引擎 -->
+  <script>
+    // 页面初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initDefaultDate();
+      initBeforeAfterSlider();
+      initScrollEffects();
+      updateCalculation();
+    });
+
+    // 默认预约日期设为今天
+    function initDefaultDate() {
+      const today = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('form-date');
+      if (dateInput) {
+        dateInput.value = today;
+        dateInput.min = today;
+      }
+    }
+
+    // 滚动监听：导航条阴影 & 返回顶部按钮显隐
+    function initScrollEffects() {
+      const navbar = document.getElementById('navbar');
+      const bttBtn = document.getElementById('back-to-top');
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) {
+          navbar.classList.add('shadow-md', 'bg-white/95');
+        } else {
+          navbar.classList.remove('shadow-md', 'bg-white/95');
+        }
+
+        if (window.scrollY > 400) {
+          bttBtn.classList.remove('hidden');
+        } else {
+          bttBtn.classList.add('hidden');
+        }
+      });
+
+      // 移动端菜单切换
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        // 点击链接自动收起菜单
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+      }
+    }
+
+    // 服务列表筛选过滤
+    function filterServices(category, btnElement) {
+      // 样式高亮切换
+      document.querySelectorAll('#service-tabs .tab-btn').forEach(btn => {
+        btn.classList.remove('active', 'bg-amber-500', 'text-white');
+        btn.classList.add('bg-white', 'text-stone-700');
+      });
+      btnElement.classList.add('active', 'bg-amber-500', 'text-white');
+      btnElement.classList.remove('bg-white', 'text-stone-700');
+
+      // 显隐卡片
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // 计算器状态数据
+    let calcState = {
+      basePrice: 88,
+      furAdd: 0,
+      planAdd: 0,
+      planTime: 60,
+      petName: '小型犬 (<8kg)'
+    };
+
+    // 选择宠型
+    function selectPetType(type, price, btn) {
+      document.querySelectorAll('.pet-type-btn').forEach(b => {
+        b.classList.remove('active', 'border-brand-500', 'bg-amber-50');
+        b.classList.add('border-stone-200', 'bg-stone-50/50');
+      });
+      btn.classList.add('active', 'border-brand-500', 'bg-amber-50');
+      btn.classList.remove('border-stone-200', 'bg-stone-50/50');
+
+      calcState.basePrice = price;
+      updateCalculation();
+    }
+
+    // 重新计算价格与时长
+    function updateCalculation() {
+      // 毛况
+      const furChecked = document.querySelector('input[name="fur"]:checked');
+      calcState.furAdd = furChecked ? parseInt(furChecked.value) : 0;
+
+      // 套餐
+      const planChecked = document.querySelector('input[name="plan"]:checked');
+      calcState.planAdd = planChecked ? parseInt(planChecked.getAttribute('data-price')) : 0;
+      calcState.planTime = planChecked ? parseInt(planChecked.getAttribute('data-time')) : 60;
+
+      // 增值项计算
+      let addonSum = 0;
+      let addonTime = 0;
+      const addons = ['addon-teeth', 'addon-paw', 'addon-medic', 'addon-shuttle'];
+      addons.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.checked) {
+          addonSum += parseInt(el.value);
+          addonTime += parseInt(el.getAttribute('data-time') || 0);
+        }
+      });
+
+      // 首次优惠 20 元
+      const discount = 20;
+      const totalRaw = calcState.basePrice + calcState.furAdd + calcState.planAdd + addonSum;
+      const finalPrice = Math.max(totalRaw - discount, 0);
+      const totalTime = calcState.planTime + addonTime;
+
+      // DOM 更新
+      document.getElementById('calc-base-price').textContent = '¥' + calcState.basePrice;
+      document.getElementById('calc-fur-price').textContent = '¥' + calcState.furAdd;
+      document.getElementById('calc-plan-price').textContent = '¥' + calcState.planAdd;
+      document.getElementById('calc-addon-price').textContent = '¥' + addonSum;
+      document.getElementById('calc-total-price').textContent = finalPrice;
+      document.getElementById('calc-total-time').textContent = totalTime;
+    }
+
+    // 计算器一键带参预订
+    function bookWithCalculator() {
+      const planChecked = document.querySelector('input[name="plan"]:checked');
+      let planText = '经典净澈洗护套餐';
+      if (planChecked && planChecked.value === 'spa') planText = '碳酸泉微气泡水疗套餐';
+      if (planChecked && planChecked.value === 'cut') planText = '全身体态精细修毛造型套餐';
+
+      const finalPrice = document.getElementById('calc-total-price').textContent;
+      
+      openBookingModal();
+      const serviceInput = document.getElementById('form-service-item');
+      if (serviceInput) {
+        serviceInput.value = `智能预估定制方案 (${planText} · 预估¥${finalPrice})`;
+      }
+    }
+
+    // 快速指定美容师预约
+    function quickBookStylist(stylistName) {
+      openBookingModal();
+      const notes = document.getElementById('form-notes');
+      if (notes) {
+        notes.value = `指定美容师：${stylistName}。希望能优先安排该老师的时间。`;
+      }
+    }
+
+    // 卡片一键预约某项服务
+    function quickSelectService(serviceName, basePrice) {
+      openBookingModal();
+      const serviceInput = document.getElementById('form-service-item');
+      if (serviceInput) {
+        serviceInput.value = `${serviceName} (起步¥${basePrice})`;
+      }
+    }
+
+    // Before/After 互动滑块拖拽逻辑
+    function initBeforeAfterSlider() {
+      const container = document.getElementById('ba-slider');
+      const overlay = document.getElementById('ba-overlay');
+      const handle = document.getElementById('ba-handle');
+      if (!container || !overlay || !handle) return;
+
+      let isDragging = false;
+
+      function updateSliderPosition(clientX) {
+        const rect = container.getBoundingClientRect();
+        let offsetX = clientX - rect.left;
+        if (offsetX < 0) offsetX = 0;
+        if (offsetX > rect.width) offsetX = rect.width;
+        
+        const percentage = (offsetX / rect.width) * 100;
+        overlay.style.width = percentage + '%';
+        handle.style.left = percentage + '%';
+      }
+
+      container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        updateSliderPosition(e.clientX);
+      });
+
+      window.addEventListener('mouseup', () => {
+        isDragging = false;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        updateSliderPosition(e.clientX);
+      });
+
+      // 移动端 Touch 触摸事件支持
+      container.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        if (e.touches[0]) updateSliderPosition(e.touches[0].clientX);
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
+        isDragging = false;
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        if (e.touches[0]) updateSliderPosition(e.touches[0].clientX);
+      }, { passive: true });
+    }
+
+    // FAQ 手风琴展开与收起
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const content = item.querySelector('.faq-content');
+      const icon = item.querySelector('.faq-icon');
+      
+      const isOpen = !content.classList.contains('hidden');
+
+      // 关闭全部
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+      // 如果之前未打开，则打开当前项
+      if (!isOpen) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      }
+    }
+
+    // 预约弹窗控制
+    function openBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      const form = document.getElementById('booking-form');
+      const successView = document.getElementById('booking-success-view');
+      if (modal) {
+        modal.classList.remove('hidden');
+        if (form) form.classList.remove('hidden');
+        if (successView) successView.classList.add('hidden');
+      }
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('booking-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // 微信客服弹窗
+    function openContactModal() {
+      const modal = document.getElementById('contact-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById('contact-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // 表单提交处理
+    function handleBookingSubmit(event) {
+      event.preventDefault();
+      
+      const owner = document.getElementById('form-owner-name').value;
+      const pet = document.getElementById('form-pet-name').value;
+      const service = document.getElementById('form-service-item').value;
+      const date = document.getElementById('form-date').value;
+      const time = document.getElementById('form-timeslot').value;
+
+      // 生成模拟单号
+      const randomOrder = 'PG' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('success-order-id').textContent = randomOrder;
+      document.getElementById('success-pet-name').textContent = pet + ' (家长：' + owner + ')';
+      document.getElementById('success-service-name').textContent = service;
+      document.getElementById('success-datetime').textContent = date + ' ' + time;
+
+      // 切换视图
+      document.getElementById('booking-form').classList.add('hidden');
+      document.getElementById('booking-success-view').classList.remove('hidden');
+
+      // 本地存储简单记录
+      try {
+        const orderData = { id: randomOrder, owner, pet, service, date, time, createAt: new Date().toISOString() };
+        localStorage.setItem('last_pet_booking', JSON.stringify(orderData));
+      } catch (e) {}
+
+      showToast('🎉 预约成功提交！店长将在15分钟内与您确认');
+      lucide.createIcons();
+    }
+
+    // 复制微信号并弹Toast
+    function copyWechat() {
+      navigator.clipboard.writeText('PawsGlow_VIP').then(() => {
+        showToast('已成功复制店长微信号：PawsGlow_VIP');
+      }).catch(() => {
+        showToast('微信号：PawsGlow_VIP (可手动添加)');
+      });
+    }
+
+    // 打开/关闭地图大图模态框
+    function openMapModal() {
+      const modal = document.getElementById('map-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        lucide.createIcons();
+      }
+    }
+
+    function closeMapModal() {
+      const modal = document.getElementById('map-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // 复制精确门店地址并弹Toast
+    function copyAddress() {
+      const address = '上海市宜川路街道贾运620号';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(address).then(() => {
+          showToast('📍 已复制门店地址：' + address);
+        }).catch(() => {
+          showToast('📍 门店地址：' + address);
+        });
+      } else {
+        showToast('📍 门店地址：' + address);
+      }
+    }
+
+    // 唤起地图应用或搜索
+    function openNavigationApp() {
+      const address = encodeURIComponent('上海市宜川路街道贾运620号');
+      window.open('https://uri.amap.com/search?keyword=' + address, '_blank');
+      showToast('正在为您打开高德地图搜索导航...');
+    }
+
+    // 轻提示 Toast
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      if (!toast || !toastMsg) return;
+
+      toastMsg.textContent = message;
+      toast.classList.remove('hidden');
+      
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>
