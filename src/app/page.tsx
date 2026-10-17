@@ -17,7 +17,7 @@ import StoreWheelBackground from '@/components/StoreWheelBackground';
 export default function HomePage() {
   return (
     <div className="relative min-h-screen flex flex-col font-sans">
-      {/* 4K 店内环境全景背景与悬浮仪表轮盘控制器 */}
+      {/* 4K 店内环境全景背景 */}
       <StoreWheelBackground />
 
       <Navbar />
@@ -38,3 +38,4 @@ export default function HomePage() {
     </div>
   );
 }
+

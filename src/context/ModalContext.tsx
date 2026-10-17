@@ -2,10 +2,21 @@
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
+export interface BookingPreset {
+  service?: string;
+  date?: string;
+  timeslot?: string;
+  petCategory?: 'dog' | 'cat';
+  petName?: string;
+  ownerName?: string;
+  phone?: string;
+}
+
 interface ModalContextType {
   bookingModalOpen: boolean;
   defaultService: string;
-  openBookingModal: (serviceName?: string) => void;
+  bookingPreset: BookingPreset | null;
+  openBookingModal: (serviceOrPreset?: string | BookingPreset) => void;
   closeBookingModal: () => void;
 
   mapModalOpen: boolean;
@@ -25,6 +36,7 @@ const ModalContext = createContext<ModalContextType | undefined>(undefined);
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
   const [defaultService, setDefaultService] = useState('犬类活力清爽深层洗护');
+  const [bookingPreset, setBookingPreset] = useState<BookingPreset | null>(null);
 
   const [mapModalOpen, setMapModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
@@ -41,15 +53,24 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
     }, 3500);
   };
 
-  const openBookingModal = (serviceName?: string) => {
-    if (serviceName) {
-      setDefaultService(serviceName);
+  const openBookingModal = (serviceOrPreset?: string | BookingPreset) => {
+    if (typeof serviceOrPreset === 'string') {
+      setDefaultService(serviceOrPreset);
+      setBookingPreset({ service: serviceOrPreset });
+    } else if (serviceOrPreset && typeof serviceOrPreset === 'object') {
+      if (serviceOrPreset.service) {
+        setDefaultService(serviceOrPreset.service);
+      }
+      setBookingPreset(serviceOrPreset);
+    } else {
+      setBookingPreset(null);
     }
     setBookingModalOpen(true);
   };
 
   const closeBookingModal = () => {
     setBookingModalOpen(false);
+    setBookingPreset(null);
   };
 
   const openMapModal = () => setMapModalOpen(true);
@@ -63,6 +84,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
       value={{
         bookingModalOpen,
         defaultService,
+        bookingPreset,
         openBookingModal,
         closeBookingModal,
         mapModalOpen,

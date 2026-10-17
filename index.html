@@ -146,93 +146,69 @@
   </div>
 
   <!-- 导航栏 -->
-  <header id="navbar" class="sticky top-0 z-40 transition-all duration-300 border-b border-amber-900/5 glass-nav">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+  <header id="navbar" class="sticky top-0 z-40 transition-all duration-300 border-b border-white/10 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 xl:px-8">
+      <div class="flex items-center justify-between h-20 gap-2 xl:gap-4">
         
         <!-- 品牌标识 -->
-        <a href="#" class="flex items-center gap-3 group">
-          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white shadow-soft group-hover:scale-105 transition-transform duration-300">
-            <i data-lucide="paw-print" class="w-6 h-6 fill-white/20"></i>
+        <a href="#" class="flex items-center gap-2 xl:gap-3 group shrink-0">
+          <div class="w-10 h-10 xl:w-11 xl:h-11 rounded-xl xl:rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 flex items-center justify-center text-white shadow-soft group-hover:scale-105 transition-transform duration-300 shrink-0">
+            <i data-lucide="paw-print" class="w-5 h-5 xl:w-6 xl:h-6 fill-white/20"></i>
           </div>
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="text-xl font-extrabold tracking-tight text-stone-900 group-hover:text-brand-600 transition-colors">萌爪星空</span>
-              <span class="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 bg-amber-100 text-brand-700 rounded-md">SPA & Grooming</span>
+          <div class="shrink-0">
+            <div class="flex items-center gap-1.5 whitespace-nowrap">
+              <span class="text-lg xl:text-xl font-extrabold tracking-tight text-stone-900 group-hover:text-brand-600 transition-colors">萌爪星空</span>
+              <span class="text-[9px] xl:text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 bg-amber-100 text-brand-700 rounded-md shrink-0">SPA & Grooming</span>
             </div>
-            <p class="text-xs text-stone-500 font-medium tracking-wider">PAWS & GLOW 宠物生活馆</p>
+            <p class="text-[10px] xl:text-xs text-stone-500 font-medium tracking-wider whitespace-nowrap">PAWS & GLOW 宠物生活馆</p>
           </div>
         </a>
 
         <!-- 桌面端菜单导航 -->
-        <nav class="hidden lg:flex items-center space-x-5 xl:space-x-7 text-stone-700 font-medium text-xs xl:text-sm">
-          <a href="#services" class="hover:text-brand-600 transition-colors py-2">洗护套餐</a>
-          <a href="#calculator" class="hover:text-brand-600 transition-colors py-2 flex items-center gap-1.5">
-            <span>智能估价</span>
-            <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700">测测费用</span>
+        <nav class="hidden lg:flex items-center space-x-1 xl:space-x-3.5 2xl:space-x-5 text-stone-700 font-medium text-xs xl:text-[13px] 2xl:text-sm shrink-0">
+          <a href="#services" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg whitespace-nowrap shrink-0">洗护套餐</a>
+          <a href="#calculator" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg flex items-center gap-1 xl:gap-1.5 whitespace-nowrap shrink-0">
+            <span class="whitespace-nowrap">智能估价</span>
+            <span class="xl:hidden inline-block w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shrink-0" title="测测费用"></span>
+            <span class="hidden xl:inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 whitespace-nowrap shrink-0">测测费用</span>
           </a>
-          <a href="#before-after" class="hover:text-brand-600 transition-colors py-2">洗护蜕变</a>
-          <a href="#environment" class="hover:text-brand-600 transition-colors py-2">透明环境</a>
-          <a href="#team" class="hover:text-brand-600 transition-colors py-2">金牌团队</a>
-          <a href="#testimonials" class="hover:text-brand-600 transition-colors py-2">家长口碑</a>
-          <a href="#faq" class="hover:text-brand-600 transition-colors py-2">常见解答</a>
-          <a href="#location" class="hover:text-brand-600 transition-colors py-2 flex items-center gap-1 font-bold text-brand-600">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500"></i>
-            <span>门店地图</span>
+          <a href="#before-after" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg whitespace-nowrap shrink-0">洗护蜕变</a>
+          <a href="#environment" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg whitespace-nowrap shrink-0">透明环境</a>
+          <a href="#team" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg whitespace-nowrap shrink-0">金牌团队</a>
+          <a href="#testimonials" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg whitespace-nowrap shrink-0">家长口碑</a>
+          <a href="#faq" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg whitespace-nowrap shrink-0">常见解答</a>
+          <a href="#location" class="hover:text-brand-600 transition-colors py-1.5 px-1.5 xl:px-2 rounded-lg flex items-center gap-1 font-bold text-brand-600 whitespace-nowrap shrink-0">
+            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500 shrink-0"></i>
+            <span class="whitespace-nowrap">门店地图</span>
           </a>
         </nav>
 
         <!-- 右侧行动号召 -->
-        <div class="hidden sm:flex items-center gap-4">
-          <button onclick="openContactModal()" class="text-stone-700 hover:text-brand-600 font-medium text-sm flex items-center gap-1.5 px-3 py-2 rounded-xl hover:bg-amber-50/80 transition-all">
-            <i data-lucide="message-circle" class="w-4 h-4 text-brand-500"></i>
-            <span>微信客服</span>
+        <div class="hidden lg:flex items-center gap-1.5 xl:gap-3 shrink-0">
+          <button onclick="openContactModal()" class="text-stone-700 hover:text-brand-600 font-medium text-xs xl:text-sm flex items-center gap-1.5 px-2 xl:px-3 py-1.5 xl:py-2 rounded-xl hover:bg-amber-50/80 transition-all whitespace-nowrap shrink-0">
+            <i data-lucide="message-circle" class="w-4 h-4 text-brand-500 shrink-0"></i>
+            <span class="whitespace-nowrap">微信客服</span>
           </button>
-          <button onclick="openBookingModal()" class="relative group overflow-hidden rounded-full p-[1px] focus:outline-none">
+          <button onclick="openBookingModal()" class="relative group overflow-hidden rounded-full p-[1px] focus:outline-none shrink-0">
             <span class="absolute inset-0 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full group-hover:opacity-90 transition-opacity"></span>
-            <span class="relative block px-6 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-sm shadow-soft group-hover:shadow-hover transition-all flex items-center gap-2">
-              <i data-lucide="calendar-heart" class="w-4 h-4"></i>
-              <span>在线预约</span>
+            <span class="relative block px-3.5 xl:px-5 py-2 xl:py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold text-xs xl:text-sm shadow-soft group-hover:shadow-hover transition-all flex items-center gap-1.5 xl:gap-2 whitespace-nowrap">
+              <i data-lucide="calendar-heart" class="w-4 h-4 shrink-0"></i>
+              <span class="whitespace-nowrap">在线预约</span>
             </span>
           </button>
         </div>
 
-        <!-- 移动端汉堡按钮 -->
-        <div class="flex items-center gap-2 sm:hidden">
-          <button onclick="openBookingModal()" class="bg-brand-500 text-white text-xs font-semibold px-3 py-2 rounded-full flex items-center gap-1">
+        <!-- 移动端/平板端汉堡按钮 -->
+        <div class="flex items-center gap-2 lg:hidden">
+          <button onclick="openBookingModal()" class="bg-brand-500 text-white text-xs font-semibold px-3 py-2 rounded-full flex items-center gap-1 whitespace-nowrap">
             <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
             <span>预约</span>
           </button>
-          <button id="mobile-menu-btn" class="p-2 rounded-xl text-stone-700 hover:bg-stone-100 transition-colors" aria-label="打开菜单">
+          <button id="mobile-menu-btn" class="p-2 rounded-xl text-stone-700 hover:bg-stone-100 transition-colors">
             <i data-lucide="menu" class="w-6 h-6"></i>
           </button>
         </div>
 
-      </div>
-    </div>
-
-    <!-- 移动端折叠菜单 -->
-    <div id="mobile-menu" class="hidden sm:hidden border-t border-stone-200/80 bg-white/95 px-6 py-6 space-y-4 shadow-lg backdrop-blur-md">
-      <a href="#services" class="block text-stone-800 font-medium text-base hover:text-brand-600">洗护套餐矩阵</a>
-      <a href="#calculator" class="block text-stone-800 font-medium text-base hover:text-brand-600">智能价格计算器</a>
-      <a href="#before-after" class="block text-stone-800 font-medium text-base hover:text-brand-600">洗护前后蜕变</a>
-      <a href="#environment" class="block text-stone-800 font-medium text-base hover:text-brand-600">无菌透明空间</a>
-      <a href="#team" class="block text-stone-800 font-medium text-base hover:text-brand-600">资深美容师团队</a>
-      <a href="#testimonials" class="block text-stone-800 font-medium text-base hover:text-brand-600">家长真实评价</a>
-      <a href="#faq" class="block text-stone-800 font-medium text-base hover:text-brand-600">常见问题 FAQ</a>
-      <a href="#location" class="block text-brand-600 font-bold text-base hover:text-brand-700 flex items-center gap-2">
-        <i data-lucide="map-pin" class="w-4 h-4"></i>
-        <span>门店地图与交通路线</span>
-      </a>
-      <div class="pt-4 border-t border-stone-100 flex flex-col gap-3">
-        <button onclick="openContactModal()" class="w-full py-2.5 rounded-xl border border-amber-200 text-stone-800 font-medium flex items-center justify-center gap-2 text-sm">
-          <i data-lucide="message-circle" class="w-4 h-4 text-brand-500"></i>
-          <span>微信客服沟通</span>
-        </button>
-        <button onclick="openBookingModal()" class="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold flex items-center justify-center gap-2 shadow-soft">
-          <i data-lucide="calendar-heart" class="w-4 h-4"></i>
-          <span>立即在线预订洗护档期</span>
-        </button>
       </div>
     </div>
   </header>

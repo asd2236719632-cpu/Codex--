@@ -3,6 +3,7 @@
 import React from 'react';
 import { Sparkles, CalendarHeart, ShieldCheck, Eye, Droplets, Heart, Sparkle, ArrowRight } from 'lucide-react';
 import { useModal } from '@/context/ModalContext';
+import BookingDateWidget from '@/components/BookingDateWidget';
 
 export default function Hero() {
   const { openBookingModal } = useModal();
@@ -10,7 +11,7 @@ export default function Hero() {
   return (
     <section className="relative pt-6 pb-16 lg:pt-14 lg:pb-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
           
           {/* 左侧文案与行动导向：与 4K 空间实景深度透叠，精细文字投影与微磨砂底衬 */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
@@ -78,7 +79,7 @@ export default function Hero() {
 
           </div>
 
-          {/* 右侧展示卡片 */}
+          {/* 右侧展示卡片与预约小窗口 */}
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
@@ -105,7 +106,7 @@ export default function Hero() {
               </div>
 
               {/* 浮动小卡片1：今日特惠通知 */}
-              <div className="absolute -top-6 -left-6 sm:-left-8 bg-stone-900/85 backdrop-blur-xl p-3.5 rounded-2xl shadow-xl border border-white/20 flex items-center gap-3 animate-pulse-subtle text-white">
+              <div className="absolute -top-6 -left-6 sm:-left-8 bg-stone-900/85 backdrop-blur-xl p-3.5 rounded-2xl shadow-xl border border-white/20 flex items-center gap-3 animate-pulse-subtle text-white z-20">
                 <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
                   <Sparkle className="w-5 h-5" />
                 </div>
@@ -115,16 +116,19 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* 浮动小卡片2：猫咪专区认证 */}
-              <div className="absolute -bottom-6 -right-4 sm:-right-6 bg-stone-900/85 backdrop-blur-xl p-4 rounded-2xl shadow-xl border border-white/20 max-w-[220px] text-white">
+              {/* 浮动小卡片2：猫咪专区认证（右上方微调，避免遮挡下方预约窗口） */}
+              <div className="absolute top-1/4 -right-4 sm:-right-6 bg-stone-900/85 backdrop-blur-xl p-3.5 rounded-2xl shadow-xl border border-white/20 max-w-[200px] text-white z-20 hidden sm:block">
                 <div className="flex items-center gap-2 text-white mb-1">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="text-xs font-bold">独立猫咪静音洗护室</span>
+                  <span className="text-xs font-bold">独立猫咪静音洗护</span>
                 </div>
-                <p className="text-[11px] text-stone-300 leading-tight">
-                  气味隔离 · 柔和弱光 · 恒温低风噪 · 零犬吠惊扰
+                <p className="text-[10px] text-stone-300 leading-tight">
+                  气味隔离 · 柔和弱光 · 零犬吠惊扰
                 </p>
               </div>
+
+              {/* 新增：预约到店日期功能小窗口 */}
+              <BookingDateWidget />
 
             </div>
           </div>

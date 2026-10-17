@@ -6,7 +6,7 @@ import { useModal } from '@/context/ModalContext';
 import { BookingTicket } from '@/types';
 
 export default function BookingModal() {
-  const { bookingModalOpen, closeBookingModal, defaultService, showToast } = useModal();
+  const { bookingModalOpen, closeBookingModal, defaultService, bookingPreset, showToast } = useModal();
 
   const [ownerName, setOwnerName] = useState('');
   const [phone, setPhone] = useState('');
@@ -31,6 +31,18 @@ export default function BookingModal() {
       setServiceItem(defaultService);
     }
   }, [defaultService]);
+
+  useEffect(() => {
+    if (bookingPreset) {
+      if (bookingPreset.date) setDate(bookingPreset.date);
+      if (bookingPreset.timeslot) setTimeslot(bookingPreset.timeslot);
+      if (bookingPreset.petCategory) setPetCategory(bookingPreset.petCategory);
+      if (bookingPreset.service) setServiceItem(bookingPreset.service);
+      if (bookingPreset.petName) setPetName(bookingPreset.petName);
+      if (bookingPreset.ownerName) setOwnerName(bookingPreset.ownerName);
+      if (bookingPreset.phone) setPhone(bookingPreset.phone);
+    }
+  }, [bookingPreset]);
 
   if (!bookingModalOpen) return null;
 
@@ -180,17 +192,17 @@ export default function BookingModal() {
                     min={new Date().toISOString().split('T')[0]}
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-stone-800"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-stone-800 font-medium"
                   />
                 </div>
                 <div>
                   <label className="block font-bold text-stone-800 mb-1.5">
-                    期望时段 *
+                    到店时间段 *
                   </label>
                   <select
                     value={timeslot}
                     onChange={(e) => setTimeslot(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-stone-800"
+                    className="w-full px-3 py-2.5 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-500 bg-white text-stone-800"
                   >
                     <option value="09:30-11:30">上午场 09:30 - 11:30 (安静清闲)</option>
                     <option value="12:00-14:00">午间场 12:00 - 14:00</option>
